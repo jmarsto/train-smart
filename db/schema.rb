@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_21_131944) do
+ActiveRecord::Schema.define(version: 2018_10_21_133554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,12 +33,14 @@ ActiveRecord::Schema.define(version: 2018_10_21_131944) do
   end
 
   create_table "exercises", force: :cascade do |t|
+    t.bigint "type_id"
     t.bigint "session_id"
     t.string "name", null: false
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["session_id"], name: "index_exercises_on_session_id"
+    t.index ["type_id"], name: "index_exercises_on_type_id"
   end
 
   create_table "periods", force: :cascade do |t|
@@ -62,6 +64,10 @@ ActiveRecord::Schema.define(version: 2018_10_21_131944) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["day_id"], name: "index_sessions_on_day_id"
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string "name", null: false
   end
 
   create_table "users", force: :cascade do |t|
