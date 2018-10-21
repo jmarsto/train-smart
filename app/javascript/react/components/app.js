@@ -1,7 +1,14 @@
 import React from 'react'
+import 'babel-polyfill';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import Landing from '../containers/Landing'
 
-export const App = (props) => {
-  return (<h1>Make It So React</h1>)
+const App = (props) => {
+  return (
+    <Router history={browserHistory}>
+      <Route path='/' component={Landing} />
+    </Router>
+  )
 }
 
 export default App
