@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_21_013342) do
+ActiveRecord::Schema.define(version: 2018_10_21_130756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2018_10_21_013342) do
 
   create_table "days", force: :cascade do |t|
     t.bigint "week_id"
-    t.string "name"
+    t.string "name", null: false
     t.index ["week_id"], name: "index_days_on_week_id"
   end
 
@@ -46,6 +46,13 @@ ActiveRecord::Schema.define(version: 2018_10_21_013342) do
     t.datetime "updated_at", null: false
     t.index ["assessment_id"], name: "index_plans_on_assessment_id"
     t.index ["user_id"], name: "index_plans_on_user_id"
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.bigint "day_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["day_id"], name: "index_sessions_on_day_id"
   end
 
   create_table "users", force: :cascade do |t|
