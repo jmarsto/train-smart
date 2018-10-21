@@ -1,6 +1,7 @@
 class Plan < ApplicationRecord
-  belongs_to :user
-  belongs_to :assessment
+  belongs_to :user, optional: true
+  belongs_to :assessment, optional: true
 
   has_many :periods
+  has_many :weeks
 end
