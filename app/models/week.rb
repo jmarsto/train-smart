@@ -4,5 +4,5 @@ class Week < ApplicationRecord
   belongs_to :period
   belongs_to :plan, touch: true
 
-  has_many :sessions, through :days
+  has_many :sessions, through: :days
 end

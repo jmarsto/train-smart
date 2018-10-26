@@ -4,5 +4,5 @@ class Plan < ApplicationRecord
 
   has_many :periods
   has_many :weeks
-  has_many :days, through :weeks
+  has_many :days, through: :weeks
 end
