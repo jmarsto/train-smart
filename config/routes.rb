@@ -11,5 +11,11 @@ Rails.application.routes.draw do
   get 'profile', to: 'programs#index', as: :profile
 
   resources :homes, only: :index
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  namespace :api do
+    namespace :v1 do
+      resources :assessments, only: :create
+      resources :programs, only: [:index, :create]
+    end
+  end
 end
