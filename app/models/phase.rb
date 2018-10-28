@@ -1,4 +1,4 @@
-class Period < ApplicationRecord
+class Phase < ApplicationRecord
   belongs_to :plan
 
   has_many :weeks
