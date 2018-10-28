@@ -34,19 +34,19 @@ ActiveRecord::Schema.define(version: 2018_10_21_133554) do
 
   create_table "exercises", force: :cascade do |t|
     t.bigint "type_id"
-    t.bigint "session_id"
+    t.bigint "workout_id"
     t.string "name", null: false
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["session_id"], name: "index_exercises_on_session_id"
     t.index ["type_id"], name: "index_exercises_on_type_id"
+    t.index ["workout_id"], name: "index_exercises_on_workout_id"
   end
 
-  create_table "periods", force: :cascade do |t|
+  create_table "phases", force: :cascade do |t|
     t.bigint "plan_id"
     t.string "name"
-    t.index ["plan_id"], name: "index_periods_on_plan_id"
+    t.index ["plan_id"], name: "index_phases_on_plan_id"
   end
 
   create_table "plans", force: :cascade do |t|
@@ -57,13 +57,6 @@ ActiveRecord::Schema.define(version: 2018_10_21_133554) do
     t.datetime "updated_at", null: false
     t.index ["assessment_id"], name: "index_plans_on_assessment_id"
     t.index ["user_id"], name: "index_plans_on_user_id"
-  end
-
-  create_table "sessions", force: :cascade do |t|
-    t.bigint "day_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["day_id"], name: "index_sessions_on_day_id"
   end
 
   create_table "types", force: :cascade do |t|
@@ -83,11 +76,20 @@ ActiveRecord::Schema.define(version: 2018_10_21_133554) do
   end
 
   create_table "weeks", force: :cascade do |t|
-    t.bigint "period_id"
+    t.bigint "phase_id"
     t.bigint "plan_id"
     t.integer "number", null: false
-    t.index ["period_id"], name: "index_weeks_on_period_id"
+    t.index ["phase_id"], name: "index_weeks_on_phase_id"
     t.index ["plan_id"], name: "index_weeks_on_plan_id"
+  end
+
+  create_table "workouts", force: :cascade do |t|
+    t.bigint "day_id"
+    t.bigint "exercise_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["day_id"], name: "index_workouts_on_day_id"
+    t.index ["exercise_id"], name: "index_workouts_on_exercise_id"
   end
 
 end
