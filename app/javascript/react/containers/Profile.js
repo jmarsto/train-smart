@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import 'babel-polyfill';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import Phase from './Phase'
 
 class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: null,
-      assessments: [],
-      latestAssessment: null,
-      plans: [],
-      latestPlan: null
+      latestPlan: {
+        phases: []
+      }
     };
   }
 
@@ -28,38 +27,52 @@ class Profile extends Component {
     .then(response => response.json())
     .then(data => {
       this.setState({
-        user: data.user,
-        assessments: data.assessments,
-        latestAssessment: data.assessments[data.assessments.length - 1],
-        plans: data.plans,
-        latestPlan: data.plans[data.plans.length - 1]
+        latestPlan: data
       })
     })
   }
 
   render() {
     let latestAssessment
-    let latestPlan
-    if (this.state.latestAssessment) {
-      latestAssessment = <div>
-        <p>Latest Assessment:</p>
-        <p>PT: {`${this.state.latestAssessment.pt}`}</p>
-        <p>Crusher: {`${this.state.latestAssessment.crusher}`}</p>
-        <p>Days: {`${this.state.latestAssessment.days}`}</p>
-        <p>Enduro: {`${this.state.latestAssessment.enduro}`}</p>
-      </div>
-    }
-    if (this.state.latestPlan) {
-      latestPlan = <div>
-        <p>Latest Plan:</p>
-        <p>{`${this.state.latestPlan.name}`}</p>
-      </div>
-    }
+    let latestPlanDiv
 
+    let phases = this.state.latestPlan.phases.map((phase, index) => {
+      return (
+        <Phase
+          key = {index}
+          weeks = {phase.weeks}
+           />
+      )
+    })
+      // let planPhases = []
+      // this.state.latestPlan.phases.forEach(phase => {
+      //   let phaseWeeks = []
+      //   phase.weeks.forEach(week => {
+      //     let weekDays = []
+      //     week.days.forEach(day => {
+      //       weekDays.push(
+              // <Day
+              //   key = {day.id}
+              //   id = {day.id}
+              //   exercise = {day.exercise_name}
+              //   description = {day.exercise_description}
+              // />
+      //       )
+      //     })
+      //     let weekDiv = <div className="week row">
+      //       {weekDays}
+      //     </div>
+      //     phaseWeeks.push(weekDiv)
+      //   })
+      //   let phaseDiv = <div className="phase">
+      //     {phaseWeeks}
+      //   </div>
+      //   planPhases.push(phaseDiv)
+      // })
+      // latestPlanDiv = <div className="plan">{planPhases}</div>
     return (
       <div>
-        {latestAssessment}
-        {latestPlan}
+        {phases}
       </div>
     )
   }
