@@ -30,15 +30,16 @@ class Profile extends Component {
       this.setState({
         user: data.user,
         assessments: data.assessments,
-        latestAssessment: data.assessments.pop(),
+        latestAssessment: data.assessments[data.assessments.length - 1],
         plans: data.plans,
-        latestPlan: data.plans.pop()
+        latestPlan: data.plans[data.plans.length - 1]
       })
     })
   }
 
   render() {
     let latestAssessment
+    let latestPlan
     if (this.state.latestAssessment) {
       latestAssessment = <div>
         <p>Latest Assessment:</p>
@@ -48,10 +49,17 @@ class Profile extends Component {
         <p>Enduro: {`${this.state.latestAssessment.enduro}`}</p>
       </div>
     }
+    if (this.state.latestPlan) {
+      latestPlan = <div>
+        <p>Latest Plan:</p>
+        <p>{`${this.state.latestPlan.name}`}</p>
+      </div>
+    }
 
     return (
       <div>
         {latestAssessment}
+        {latestPlan}
       </div>
     )
   }
