@@ -3,20 +3,21 @@ import React from 'react';
 const AssessDays = props => {
   return(
     <div>
-      <p>I'm the assessDays form hunk</p>
-      <form onSubmit={props.handleSubmit} name="days">
-        Yes:
-        <br />
-        <input type="radio" name="days" value="true"></input>
-        <br />
-        No:
-        <br />
-        <input type="radio" name="days" value="false"></input>
-        <br />
+      <h4>Do you have MORE than 2-3 days a week to commit to training?</h4>
+      <form onSubmit={props.handleSubmit} name="days" className="row">
+        <div className="small-7 columns">
+          Yes:
+          <br />
+          <input type="radio" name="days" value="true"></input>
+        </div>
+        <div className="small-7 columns">
+          No:
+          <br />
+          <input type="radio" name="days" value="false"></input>
+        </div>
         <input type="submit"></input>
       </form>
-      <span onClick={props.nextStep}>nextStep</span>
-      <span onClick={props.prevStep}>prevStep</span>
+      <button className="back" onClick={props.prevStep}>Go Back</button>
     </div>
   )
 }
