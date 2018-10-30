@@ -91,37 +91,36 @@ class Assessment extends Component {
       switch (this.state.step) {
         case 1:
           return <AssessPT
-            nextStep = {this.nextStep}
             handleSubmit = {this.handleStepSubmission}
           />
         case 2:
           return <AssessCrusher
-            nextStep = {this.nextStep}
             prevStep = {this.prevStep}
             handleSubmit = {this.handleStepSubmission}
           />
         case 3:
           return <AssessDays
-            nextStep = {this.nextStep}
             prevStep = {this.prevStep}
             handleSubmit = {this.handleStepSubmission}
           />
         case 4:
           return <AssessEnduro
-            nextStep = {this.nextStep}
             prevStep = {this.prevStep}
             handleSubmit = {this.handleStepSubmission}
           />
         case 5:
           return <AssessmentSubmission
             submitAssessment = {this.handleAssessmentSubmission}
+            prevStep = {this.prevStep}
           />
       }
     }
 
     return (
       <div>
-        {assessmentStep()}
+        <div className="assessment">
+          {assessmentStep()}
+        </div>
       </div>
     )
   }

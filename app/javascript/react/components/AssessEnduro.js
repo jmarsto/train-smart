@@ -3,20 +3,21 @@ import React from 'react';
 const AssessEnduro = props => {
   return(
     <div>
-      <p>I'm the assessEnduro form hunk</p>
-        <form onSubmit={props.handleSubmit} name="enduro">
-          Yes:
-          <br />
-          <input type="radio" name="enduro" value="true"></input>
-          <br />
-          No:
-          <br />
-          <input type="radio" name="enduro" value="false"></input>
-          <br />
+      <h4>When projecting a route, which is the limiting factor?</h4>
+        <form onSubmit={props.handleSubmit} name="enduro" className="row">
+          <div className="small-7 columns">
+            Endurance:
+            <br />
+            <input type="radio" name="enduro" value="true"></input>
+          </div>
+          <div className="small-7 columns">
+            Technical Ability:
+            <br />
+            <input type="radio" name="enduro" value="false"></input>
+          </div>
           <input type="submit"></input>
         </form>
-      <span onClick={props.nextStep}>nextStep</span>
-      <span onClick={props.prevStep}>prevStep</span>
+        <button className="back" onClick={props.prevStep}>Go Back</button>
     </div>
   )
 }
