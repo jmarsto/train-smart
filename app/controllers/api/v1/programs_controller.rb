@@ -2,20 +2,42 @@ class Api::V1::ProgramsController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
 
   def index
-    user_plans = []
-    current_user.personalized_plans.each do |personal_plan|
-      user_plans << personal_plan.plan
-    end
-    user_assessments_and_plans = {
-      user: current_user,
-      assessments: current_user.assessments,
-      plans: user_plans
-    }
-    render json: user_assessments_and_plans
+    render json: serialized_data(current_plan)
   end
 
   def create
     binding.pry
   end
 
+  private
+
+  def current_plan
+    current_user.personalized_plans.last.plan
+  end
+
+  def serialized_data(plan)
+    { phases: serialized_phases(plan.phases) }
+  end
+
+  def serialized_phases(phases)
+    phases_array = []
+    phases.each do |phase|
+      phase_hash = {
+        weeks: serialized_weeks(phase.weeks)
+      }
+      phases_array << phase_hash
+    end
+    phases_array
+  end
+
+  def serialized_weeks(weeks)
+    weeks_array = []
+    weeks.each do |week|
+      week_hash = {
+        days: ActiveModel::Serializer::ArraySerializer.new(week.days, each_serializer: DaySerializer)
+      }
+      weeks_array << week_hash
+    end
+    weeks_array
+  end
 end
