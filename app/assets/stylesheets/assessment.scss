@@ -19,3 +19,15 @@
   display: block;
   text-align: left;
 }
+
+.progress-tile {
+  border: 1px solid black;
+}
+
+.selectable {
+  background-color: grey;
+}
+
+.selected {
+  background-color: green;
+}

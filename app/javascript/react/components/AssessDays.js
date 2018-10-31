@@ -17,7 +17,6 @@ const AssessDays = props => {
         </div>
         <input type="submit"></input>
       </form>
-      <button className="back" onClick={props.prevStep}>Go Back</button>
     </div>
   )
 }
