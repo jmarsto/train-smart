@@ -36,40 +36,16 @@ class Profile extends Component {
     let latestAssessment
     let latestPlanDiv
 
-    let phases = this.state.latestPlan.phases.map((phase, index) => {
+    let phases = this.state.latestPlan.phases.map(phase => {
       return (
         <Phase
-          key = {index}
+          key = {phase.id}
+          id = {phase.id}
           weeks = {phase.weeks}
            />
       )
     })
-      // let planPhases = []
-      // this.state.latestPlan.phases.forEach(phase => {
-      //   let phaseWeeks = []
-      //   phase.weeks.forEach(week => {
-      //     let weekDays = []
-      //     week.days.forEach(day => {
-      //       weekDays.push(
-              // <Day
-              //   key = {day.id}
-              //   id = {day.id}
-              //   exercise = {day.exercise_name}
-              //   description = {day.exercise_description}
-              // />
-      //       )
-      //     })
-      //     let weekDiv = <div className="week row">
-      //       {weekDays}
-      //     </div>
-      //     phaseWeeks.push(weekDiv)
-      //   })
-      //   let phaseDiv = <div className="phase">
-      //     {phaseWeeks}
-      //   </div>
-      //   planPhases.push(phaseDiv)
-      // })
-      // latestPlanDiv = <div className="plan">{planPhases}</div>
+
     return (
       <div>
         {phases}

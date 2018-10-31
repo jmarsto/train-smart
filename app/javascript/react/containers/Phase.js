@@ -3,10 +3,11 @@ import Week from './Week'
 
 const Phase = (props) => {
 
-  let weeks = props.weeks.map((week, index) => {
+  let weeks = props.weeks.map(week => {
     return (
       <Week
-        key = {index}
+        key = {week.id}
+        id = {week.id}
         days = {week.days}
        />
     )
