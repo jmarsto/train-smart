@@ -100,7 +100,6 @@ class Assessment extends Component {
           return <AssessmentTile
             name = "pt"
             prompt = "Do you have a previous injury that affects your climbing?"
-            handleSubmit = {this.handleStepSubmission}
             handleSelection = {this.handleAssessmentSelection}
             selection = {this.state.pt}
             labelTrue = "Yes"
@@ -110,7 +109,6 @@ class Assessment extends Component {
           return <AssessmentTile
             name = "crusher"
             prompt = "Have you ever sent 5.12 or V6?"
-            handleSubmit = {this.handleStepSubmission}
             handleSelection = {this.handleAssessmentSelection}
             selection = {this.state.crusher}
             labelTrue = "Yes"
@@ -120,7 +118,6 @@ class Assessment extends Component {
           return <AssessmentTile
             name = "days"
             prompt = "Do you have MORE than 2-3 days a week to commit to training?"
-            handleSubmit = {this.handleStepSubmission}
             handleSelection = {this.handleAssessmentSelection}
             selection = {this.state.days}
             labelTrue = "Yes"
@@ -130,7 +127,6 @@ class Assessment extends Component {
           return <AssessmentTile
             name = "enduro"
             prompt = "When projecting a route, which is the limiting factor?"
-            handleSubmit = {this.handleStepSubmission}
             handleSelection = {this.handleAssessmentSelection}
             selection = {this.state.enduro}
             labelTrue = "Endurance"
