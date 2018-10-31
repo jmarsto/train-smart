@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import 'babel-polyfill';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import AssessPT from '../components/AssessPT';
-import AssessCrusher from '../components/AssessCrusher';
-import AssessDays from '../components/AssessDays';
-import AssessEnduro from '../components/AssessEnduro';
+import AssessmentTile from '../components/AssessmentTile';
 import AssessmentSubmission from '../components/AssessmentSubmission';
 import ProgressBar from './ProgressBar';
 
@@ -21,11 +18,10 @@ class Assessment extends Component {
     };
     this.nextStep = this.nextStep.bind(this)
     this.prevStep = this.prevStep.bind(this)
-    this.handleStepSubmission = this.handleStepSubmission.bind(this)
-    this.handleAssessmentSubmission = this.handleAssessmentSubmission.bind(this)
     this.postAssessment = this.postAssessment.bind(this)
     this.increaseStepLimitIfNecessary = this.increaseStepLimitIfNecessary.bind(this)
     this.selectStep = this.selectStep.bind(this)
+    this.handleAssessmentSelection = this.handleAssessmentSelection.bind(this)
   }
 
   selectStep = (stepNum) => {
@@ -54,17 +50,9 @@ class Assessment extends Component {
     }
   }
 
-  handleStepSubmission = (event) => {
-    event.preventDefault();
-    let formName = event.target.name
-    let value
-    if (event.target[formName].value === "true") {
-      value = true
-    }
-    else {
-      value = false
-    }
-    this.increaseStepLimitIfNecessary(event);
+  handleAssessmentSelection = (event) => {
+    let value = event.target.value === "true"
+    this.increaseStepLimitIfNecessary(event)
     this.nextStep();
     this.setState({ [event.target.name]: value })
   }
@@ -109,20 +97,44 @@ class Assessment extends Component {
     let assessmentStep = () => {
       switch (this.state.selectedStep) {
         case 1:
-          return <AssessPT
+          return <AssessmentTile
+            name = "pt"
+            prompt = "Do you have a previous injury that affects your climbing?"
             handleSubmit = {this.handleStepSubmission}
+            handleSelection = {this.handleAssessmentSelection}
+            selection = {this.state.pt}
+            labelTrue = "Yes"
+            labelFalse = "No"
           />
         case 2:
-          return <AssessCrusher
+          return <AssessmentTile
+            name = "crusher"
+            prompt = "Have you ever sent 5.12 or V6?"
             handleSubmit = {this.handleStepSubmission}
+            handleSelection = {this.handleAssessmentSelection}
+            selection = {this.state.crusher}
+            labelTrue = "Yes"
+            labelFalse = "No"
           />
         case 3:
-          return <AssessDays
+          return <AssessmentTile
+            name = "days"
+            prompt = "Do you have MORE than 2-3 days a week to commit to training?"
             handleSubmit = {this.handleStepSubmission}
+            handleSelection = {this.handleAssessmentSelection}
+            selection = {this.state.days}
+            labelTrue = "Yes"
+            labelFalse = "No"
           />
         case 4:
-          return <AssessEnduro
+          return <AssessmentTile
+            name = "enduro"
+            prompt = "When projecting a route, which is the limiting factor?"
             handleSubmit = {this.handleStepSubmission}
+            handleSelection = {this.handleAssessmentSelection}
+            selection = {this.state.enduro}
+            labelTrue = "Endurance"
+            labelFalse = "Technical Ability"
           />
         case 5:
           return <AssessmentSubmission
