@@ -4,16 +4,16 @@ const AssessmentTile = props => {
   return(
     <div>
       <h4>{props.prompt}</h4>
-      <form onSubmit={props.handleSubmit} name={props.name} className="row" onChange={props.handleSelection}>
+      <form name={props.name} className="row" >
         <div className="small-7 columns">
           {props.labelTrue}
           <br />
-          <input type="radio" name={props.name} value="true" checked={props.selection === true}></input>
+          <input type="radio" name={props.name} value="true" checked={props.selection === true} onChange={props.handleSelection}></input>
         </div>
         <div className="small-7 columns">
           {props.labelFalse}
           <br />
-          <input type="radio" name={props.name} value="false" checked={props.selection === false}></input>
+          <input type="radio" name={props.name} value="false" checked={props.selection === false} onChange={props.handleSelection}></input>
         </div>
       </form>
     </div>
