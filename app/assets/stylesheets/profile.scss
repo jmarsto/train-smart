@@ -1,3 +1,33 @@
 .day {
-  border: 1px solid black
+  border-left: 1px solid #FAECD4;
+  border-right: 1px solid #FAECD4;
+  min-height: 15vh;
+  max-height: 100px;
+  margin-bottom: 2px;
+  font-size: 14px;
+}
+
+.day-number {
+  float: right;
+  font-size: 12px;
+}
+
+.plan {
+  margin-top: 30px
+}
+
+.phase-1 .week .day {
+  background-color: #b6b5c5;
+}
+
+.phase-2 .week .day {
+  background-color: #9997AE;
+}
+
+.phase-3 .week .day {
+  background-color: #726F91;
+}
+
+.phase-4 .week .day {
+  background-color: #555178;
 }

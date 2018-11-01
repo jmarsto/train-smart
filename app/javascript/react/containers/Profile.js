@@ -48,7 +48,9 @@ class Profile extends Component {
 
     return (
       <div>
-        {phases}
+        <div className="plan">
+          {phases}
+        </div>
       </div>
     )
   }

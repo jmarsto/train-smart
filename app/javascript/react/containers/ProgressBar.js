@@ -23,8 +23,8 @@ const ProgressBar = props => {
   }
 
   return(
-    <div className="progress-bar row">
-      <button className="back small-2 columns" onClick={props.prevStep}>Go Back</button>
+    <div id="progress-bar" className="row">
+      <div className="progress-tile back small-2 columns" onClick={props.prevStep}>Go Back</div>
       {progressTiles}
     </div>
   )
