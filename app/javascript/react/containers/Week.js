@@ -11,6 +11,7 @@ const Week = props => {
         id = {day.id}
         exercise = {day.exercise_name}
         description = {day.exercise_description}
+        exercises = {day.exercises}
       />
     )
   })

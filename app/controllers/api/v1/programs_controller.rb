@@ -24,6 +24,7 @@ class Api::V1::ProgramsController < ApplicationController
     phases.each do |phase|
       phase_hash = {
         id: phase.id,
+        name: phase.name,
         weeks: serialized_weeks(phase.weeks)
       }
       phases_array << phase_hash

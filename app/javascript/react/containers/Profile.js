@@ -39,6 +39,7 @@ class Profile extends Component {
     let phases = this.state.latestPlan.phases.map(phase => {
       return (
         <Phase
+          name = {phase.name}
           key = {phase.id}
           id = {phase.id}
           weeks = {phase.weeks}

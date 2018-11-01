@@ -15,7 +15,7 @@ const Phase = (props) => {
 
 
   return (
-    <div className={`phase-${props.id}`}>
+    <div className={`phase-${props.name}`}>
       {weeks}
     </div>
   )

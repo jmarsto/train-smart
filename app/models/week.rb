@@ -6,4 +6,6 @@ class Week < ApplicationRecord
 
   has_many :days
   has_many :workouts, through: :days
+
+  # use an after_create method to generate all of the days for a week
 end
