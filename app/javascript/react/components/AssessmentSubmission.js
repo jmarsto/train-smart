@@ -2,7 +2,7 @@ import React from 'react';
 
 const AssessmentSubmission = props => {
   return(
-    <div>
+    <div className="assessment-tile">
       <button onClick={props.submitAssessment}>Submit?</button>
       <br />
     </div>

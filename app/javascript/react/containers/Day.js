@@ -4,8 +4,8 @@ const Day = props => {
 
   return(
     <div className="day small-2 columns">
-      <p>{props.id}</p>
-      <p>{props.exercise}</p>
+      <span className="day-number">{props.id}</span>
+      <span>{props.exercise}</span>
     </div>
   )
 }

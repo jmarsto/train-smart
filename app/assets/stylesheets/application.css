@@ -17,7 +17,5 @@
  */
 
 body {
-  background: #c3d0cb;
-  background: -webkit-linear-gradient(to bottom, #e9eceb, #bacac4);
-  background: linear-gradient(to bottom, #e9eceb, #bacac4);
+  background: #FAECD4
 }

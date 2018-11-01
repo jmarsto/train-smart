@@ -2,8 +2,8 @@ import React from 'react';
 
 const AssessmentTile = props => {
   return(
-    <div>
-      <h4>{props.prompt}</h4>
+    <div className="assessment-tile">
+      <h4 className="prompt">{props.prompt}</h4>
       <form name={props.name} className="row" >
         <div className="small-7 columns">
           {props.labelTrue}
