@@ -24,6 +24,7 @@ class Api::V1::ProgramsController < ApplicationController
     phases.each do |phase|
       phase_hash = {
         id: phase.id,
+        name: phase.name,
         weeks: serialized_weeks(phase.weeks)
       }
       phases_array << phase_hash
@@ -33,10 +34,10 @@ class Api::V1::ProgramsController < ApplicationController
 
   def serialized_weeks(weeks)
     weeks_array = []
-    weeks.each do |week|
+    weeks.order(id: :asc).each do |week|
       week_hash = {
         id: week.id,
-        days: ActiveModel::Serializer::ArraySerializer.new(week.days, each_serializer: DaySerializer)
+        days: ActiveModel::Serializer::ArraySerializer.new(week.days.order(id: :asc), each_serializer: DaySerializer)
       }
       weeks_array << week_hash
     end

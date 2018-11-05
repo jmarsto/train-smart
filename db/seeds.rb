@@ -28,7 +28,6 @@ Exercise.create([
   { type: se, name: "Lat Pull-Downs", description: "Exercise Description..." },
   { type: arc, name: "ARC Progression", description: "Exercise Description..." },
   { type: pt, name: "Physical Therapy", description: "Exercise Description..." },
-  { type: pt, name: "Warm Up", description: "Exercise Description..." },
   { type: pt, name: "Rice Bucket Exercises", description: "Exercise Description..." },
   { type: hb, name: "Hangboad Progression", description: "Exercise Description..." },
   { type: skills, name: "Silent Feet", description: "Exercise Description..." },
@@ -49,69 +48,3 @@ Exercise.create([
   { type: boulder, name: "Warmup Boulder Ladder", description: "Exercise Description..." },
   { type: campus, name: "Campus Progression", description: "Exercise Description..." }
 ])
-
-plan_1 = Plan.create(name: "First")
-phase_BF = Phase.create(plan: plan_1, name: "BF")
-phase_strength = Phase.create(plan: plan_1, name: "strength")
-phase_power = Phase.create(plan: plan_1, name: "power")
-phase_PE = Phase.create(plan: plan_1, name: "PE")
-
-Week.create(phase: phase_BF, number: 1, plan: plan_1)
-Week.create(phase: phase_BF, number: 2, plan: plan_1)
-Week.create(phase: phase_BF, number: 3, plan: plan_1)
-Week.create(phase: phase_BF, number: 4, plan: plan_1)
-Week.create(phase: phase_strength, number: 5, plan: plan_1)
-Week.create(phase: phase_strength, number: 6, plan: plan_1)
-Week.create(phase: phase_strength, number: 7, plan: plan_1)
-Week.create(phase: phase_power, number: 8, plan: plan_1)
-Week.create(phase: phase_power, number: 9, plan: plan_1)
-Week.create(phase: phase_PE, number: 10, plan: plan_1)
-Week.create(phase: phase_PE, number: 11, plan: plan_1)
-Week.create(phase: phase_PE, number: 12, plan: plan_1)
-
-plan_1.weeks.each do |week|
-  Day.create([
-    { week: week, name: "Sunday" },
-    { week: week, name: "Monday" },
-    { week: week, name: "Tuesday" },
-    { week: week, name: "Wednesday" },
-    { week: week, name: "Thursday" },
-    { week: week, name: "Friday" },
-    { week: week, name: "Saturday" }])
-end
-
-plan_1.phases.first.days.each_slice(2) do |two_days|
-  arc_exercise = Exercise.find_by(name: "ARC Progression")
-  new_workout = Workout.new
-  new_workout.exercise = arc_exercise
-  new_workout.day = two_days.first
-  new_workout.save
-end
-
-plan_1.phases.second.days.each_slice(3) do |three_days|
-  hb_exercise = Exercise.find_by(name: "Hangboad Progression")
-  new_workout = Workout.new
-  new_workout.exercise = hb_exercise
-  new_workout.day = three_days.first
-  new_workout.save
-end
-
-plan_1.phases.third.days.each_slice(3) do |three_days|
-  wbl_exercise = Exercise.find_by(name: "Limit Bouldering")
-  new_workout = Workout.new
-  new_workout.exercise = wbl_exercise
-  new_workout.day = three_days.first
-  new_workout.save
-end
-
-plan_1.phases.fourth.weeks.each do |week|
-  lbc_exercise = Exercise.find_by(name: "Linked Boulder Circuits")
-  sunday_workout = Workout.new
-  sunday_workout.exercise = lbc_exercise
-  sunday_workout.day = week.days.first
-  sunday_workout.save
-  wednesday_workout = Workout.new
-  wednesday_workout.exercise = lbc_exercise
-  wednesday_workout.day = week.days.first
-  wednesday_workout.save
-end
