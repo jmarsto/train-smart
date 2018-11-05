@@ -5,10 +5,6 @@ class Api::V1::ProgramsController < ApplicationController
     render json: serialized_data(current_plan)
   end
 
-  def create
-    binding.pry
-  end
-
   private
 
   def current_plan
