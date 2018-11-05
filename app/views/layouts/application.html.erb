@@ -24,7 +24,7 @@
             <a href="#" data-dropdown="hover1" data-options="is_hover:true; hover_timeout:00"><%= current_user.email %></a>
           </li>
           <ul id="hover1" class="f-dropdown" data-dropdown-content>
-            <li><%= link_to "Edit Assessment", "/#" %></li>
+            <li><%= link_to "Edit Assessment", "/edit" %></li>
             <li><%= link_to "Profile", '/profile' %></li>
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
           </ul>

@@ -6,15 +6,16 @@ Rails.application.routes.draw do
     root :to => 'devise/registrations#new'
   end
 
-  resources :programs, only: [:new, :index]
+  resources :programs, only: :new
 
-  get 'profile', to: 'programs#index', as: :profile
+  get 'profile', to: 'programs#index', as: 'profile'
+  get 'edit', to: 'programs#edit'
 
   resources :homes, only: :index
 
   namespace :api do
     namespace :v1 do
-      resources :assessments, only: :create
+      resources :assessments, only: [:index, :create, :update]
       resources :programs, only: [:index, :create]
     end
   end
