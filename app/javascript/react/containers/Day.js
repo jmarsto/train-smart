@@ -7,6 +7,7 @@ const Day = props => {
     return(
       <Exercise
         key = {exercise.id}
+        id = {exercise.id}
         name = {exercise.name}
         description = {exercise.description}
       />

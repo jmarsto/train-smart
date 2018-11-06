@@ -1,14 +1,15 @@
 .day {
   border-left: 1px solid #FAECD4;
   border-right: 1px solid #FAECD4;
-  min-height: 18vh;
-  max-height: 100px;
+  min-height: 120px;
+  max-height: 120px;
   margin-bottom: 2px;
+  padding: 5px 15px;
   font-size: 14px;
 }
 
 .plan {
-  margin-top: 30px
+  margin: 40px 0
 }
 
 .phase-BF .week .day {
@@ -25,4 +26,22 @@
 
 .phase-PE .week .day {
   background-color: #555178;
+}
+
+.exercise {
+  font-weight: bold;
+}
+
+.info-icon {
+  padding-left: 10px;
+}
+
+.modal {
+  padding: 10px;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  right: 20%;
+  bottom: 20%;
+  background-color: #fff9f0;
 }

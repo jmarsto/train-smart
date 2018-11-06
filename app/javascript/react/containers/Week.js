@@ -9,8 +9,6 @@ const Week = props => {
       <Day
         key = {day.id}
         id = {day.id}
-        exercise = {day.exercise_name}
-        description = {day.exercise_description}
         exercises = {day.exercises}
       />
     )
