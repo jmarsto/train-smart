@@ -5,7 +5,11 @@ class PlanGenerator
   end
 
   def generate
-    new_plan = Plan.create
+    new_plan = Plan.new
+    new_plan.user = @user
+    new_plan.assessment = @assessment
+    new_plan.save
+
     phase_BF = Phase.create(plan: new_plan, name: "BF")
     phase_HB = Phase.create(plan: new_plan, name: "HB")
     phase_POW = Phase.create(plan: new_plan, name: "POW")
@@ -101,11 +105,6 @@ class PlanGenerator
       end
     end
 
-    new_personalized_plan = PersonalizedPlan.new
-    new_personalized_plan.user = @user
-    new_personalized_plan.assessment = @assessment
-    new_personalized_plan.plan = new_plan
-    new_personalized_plan.save
-    return new_personalized_plan
+    return new_plan
   end
 end

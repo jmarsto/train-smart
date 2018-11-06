@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_29_123040) do
+ActiveRecord::Schema.define(version: 2018_10_21_133554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,17 +43,6 @@ ActiveRecord::Schema.define(version: 2018_10_29_123040) do
     t.index ["workout_id"], name: "index_exercises_on_workout_id"
   end
 
-  create_table "personalized_plans", force: :cascade do |t|
-    t.bigint "assessment_id", null: false
-    t.bigint "plan_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["assessment_id"], name: "index_personalized_plans_on_assessment_id"
-    t.index ["plan_id"], name: "index_personalized_plans_on_plan_id"
-    t.index ["user_id"], name: "index_personalized_plans_on_user_id"
-  end
-
   create_table "phases", force: :cascade do |t|
     t.bigint "plan_id"
     t.string "name"
@@ -61,9 +50,12 @@ ActiveRecord::Schema.define(version: 2018_10_29_123040) do
   end
 
   create_table "plans", force: :cascade do |t|
-    t.string "name"
+    t.bigint "user_id"
+    t.bigint "assessment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["assessment_id"], name: "index_plans_on_assessment_id"
+    t.index ["user_id"], name: "index_plans_on_user_id"
   end
 
   create_table "types", force: :cascade do |t|
