@@ -34,7 +34,7 @@
           <li>
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
               <span class="email">
-                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                <%= f.email_field :email, autocomplete: "email" %>
               </span>
 
               <span class="password">
@@ -42,7 +42,7 @@
               </span>
 
               <span class="sign-in">
-                <%= f.submit "Sign in" %>
+                <%= f.submit "Log In" %>
               </span>
             <% end %>
             <%- end -%>
