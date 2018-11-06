@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :assessments
-  has_many :personalized_plans
+  has_many :plans
 end

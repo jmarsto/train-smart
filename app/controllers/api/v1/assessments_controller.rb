@@ -20,12 +20,12 @@ class Api::V1::AssessmentsController < ApplicationController
     new_assessment.user = current_user
 
     if new_assessment.save
-      new_personalized_plan = PlanGenerator.new(new_assessment, current_user).generate
+      new_plan = PlanGenerator.new(new_assessment, current_user).generate
 
-      if new_personalized_plan.save
-        render json: new_personalized_plan
+      if new_plan.save
+        render json: new_plan
       else
-        render json: { errors: new_personalized_plan.errors.full_messages }, status: :unprocessable_entity
+        render json: { errors: new_plan.errors.full_messages }, status: :unprocessable_entity
       end
 
     else

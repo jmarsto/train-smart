@@ -8,7 +8,7 @@ class Api::V1::ProgramsController < ApplicationController
   private
 
   def current_plan
-    current_user.personalized_plans.last.plan
+    current_user.plans.last
   end
 
   def serialized_data(plan)
