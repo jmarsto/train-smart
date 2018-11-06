@@ -16,7 +16,6 @@ class Api::V1::AssessmentsController < ApplicationController
   end
 
   def create
-
     new_assessment = Assessment.new(assessment_params)
     new_assessment.user = current_user
 

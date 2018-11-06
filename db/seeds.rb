@@ -26,10 +26,10 @@ Exercise.create([
   { type: se, name: "Shoulder Press", description: "Exercise Description..." },
   { type: se, name: "Dips", description: "Exercise Description..." },
   { type: se, name: "Lat Pull-Downs", description: "Exercise Description..." },
-  { type: arc, name: "ARC Progression", description: "Exercise Description..." },
-  { type: pt, name: "Physical Therapy", description: "Exercise Description..." },
+  { type: arc, name: "ARC", description: "Exercise Description..." },
+  { type: pt, name: "PT", description: "Exercise Description..." },
   { type: pt, name: "Rice Bucket Exercises", description: "Exercise Description..." },
-  { type: hb, name: "Hangboad Progression", description: "Exercise Description..." },
+  { type: hb, name: "Hangboard", description: "Exercise Description..." },
   { type: skills, name: "Silent Feet", description: "Exercise Description..." },
   { type: skills, name: "Hover Hands", description: "Exercise Description..." },
   { type: skills, name: "Two Points Off", description: "Exercise Description..." },
@@ -41,10 +41,10 @@ Exercise.create([
   { type: core, name: "Ring Progression", description: "Exercise Description..." },
   { type: core, name: "Planks", description: "Exercise Description..." },
   { type: core, name: "Soul-Squeezes", description: "Exercise Description..." },
-  { type: boulder, name: "Limit Bouldering", description: "Exercise Description..." },
+  { type: boulder, name: "LB", description: "Exercise Description... Limit Bouldering" },
   { type: boulder, name: "4x4s", description: "Exercise Description..." },
-  { type: boulder, name: "Linked Boulder Circuits", description: "Exercise Description..." },
+  { type: boulder, name: "LBC", description: "Exercise Description... Linked Boulder Circuits" },
   { type: boulder, name: "Lock-Off Laps", description: "Exercise Description..." },
-  { type: boulder, name: "Warmup Boulder Ladder", description: "Exercise Description..." },
-  { type: campus, name: "Campus Progression", description: "Exercise Description..." }
+  { type: boulder, name: "WBL", description: "Exercise Description... Warmup Boulder Ladder" },
+  { type: campus, name: "Campus", description: "Exercise Description..." }
 ])

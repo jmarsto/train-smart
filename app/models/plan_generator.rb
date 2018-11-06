@@ -51,13 +51,13 @@ class PlanGenerator
       week_count += 1
     end
 
-    pt = Exercise.find_by(name: "Physical Therapy")
-    arc = Exercise.find_by(name: "ARC Progression")
-    hb = Exercise.find_by(name: "Hangboad Progression")
-    wbl = Exercise.find_by(name: "Warmup Boulder Ladder")
-    lb = Exercise.find_by(name: "Limit Bouldering")
-    lbc = Exercise.find_by(name: "Linked Boulder Circuits")
-    campus = Exercise.find_by(name: "Campus Progression")
+    pt = Exercise.find_by(name: "PT")
+    arc = Exercise.find_by(name: "ARC")
+    hb = Exercise.find_by(name: "Hangboard")
+    wbl = Exercise.find_by(name: "WBL")
+    lb = Exercise.find_by(name: "LB")
+    lbc = Exercise.find_by(name: "LBC")
+    campus = Exercise.find_by(name: "Campus")
 
     if @assessment.days
       phase_BF.days.each_slice(2) do |two_days|
@@ -69,12 +69,6 @@ class PlanGenerator
       end
     end
 
-    if @assessment.pt
-      new_plan.days.each_slice(4) do |four_days|
-        Workout.create(exercise: pt, day: four_days.first)
-      end
-    end
-
     phase_HB.days.each_slice(3) do |three_days|
       Workout.create(exercise: hb, day: three_days.first)
     end
@@ -83,13 +77,13 @@ class PlanGenerator
       phase_POW.weeks.each do |week|
         Workout.create(exercise: lb, day: week.days.find_by(name: "Sunday"))
         Workout.create(exercise: lb, day: week.days.find_by(name: "Tuesday"))
-        Workout.create(exercise: campus, day: week.days.find_by(name: "Thursday"))
         Workout.create(exercise: wbl, day: week.days.find_by(name: "Thursday"))
+        Workout.create(exercise: campus, day: week.days.find_by(name: "Thursday"))
         Workout.create(exercise: lb, day: week.days.find_by(name: "Saturday"))
       end
     else
       phase_POW.weeks.each do |week|
-        Workout.create(exercise: lb, day: week.days.reverse.find_by(name: "Sunday"))
+        Workout.create(exercise: lb, day: week.days.find_by(name: "Sunday"))
         Workout.create(exercise: lb, day: week.days.find_by(name: "Tuesday"))
         Workout.create(exercise: arc, day: week.days.find_by(name: "Thurday"))
         Workout.create(exercise: lb, day: week.days.find_by(name: "Friday"))
@@ -97,8 +91,14 @@ class PlanGenerator
     end
 
     phase_PE.weeks.each do |week|
-      Workout.create(exercise: lbc, day: week.days.find_by(name: "Wednesday"))
       Workout.create(exercise: wbl, day: week.days.find_by(name: "Wednesday"))
+      Workout.create(exercise: lbc, day: week.days.find_by(name: "Wednesday"))
+    end
+
+    if @assessment.pt
+      new_plan.days.each_slice(4) do |four_days|
+        Workout.create(exercise: pt, day: four_days.first)
+      end
     end
 
     new_personalized_plan = PersonalizedPlan.new
