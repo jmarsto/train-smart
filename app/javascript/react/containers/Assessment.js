@@ -37,9 +37,11 @@ class Assessment extends Component {
   }
 
   prevStep = () => {
-    let changingStep = this.state.selectedStep
-    changingStep--
-    this.setState({ selectedStep: changingStep })
+    if (this.state.selectedStep > 1) {
+      let changingStep = this.state.selectedStep
+      changingStep--
+      this.setState({ selectedStep: changingStep })
+    }
   }
 
   increaseStepLimitIfNecessary = (event) => {
