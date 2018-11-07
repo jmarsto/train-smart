@@ -17,5 +17,9 @@
  */
 
 body {
-  background: #FAECD4
+  background: #FAECD4;
+}
+
+* {
+  font-family: 'Nunito', sans-serif;
 }

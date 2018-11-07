@@ -24,7 +24,9 @@ const ProgressBar = props => {
 
   return(
     <div id="progress-bar" className="row">
-      <div className="progress-tile back small-2 columns" onClick={props.prevStep}>Go Back</div>
+      <div className="progress-tile back small-2 columns" onClick={props.prevStep}>
+        <i className="fa fa-angle-double-left" aria-hidden="true"></i>
+      </div>
       {progressTiles}
     </div>
   )

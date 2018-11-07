@@ -12,7 +12,7 @@ const ProgressTile = props => {
 
   return(
     <div className={classStatus} onClick={props.selectStep}>
-      <p>progress tile #{props.id}</p>
+      <p></p>
     </div>
   )
 }
