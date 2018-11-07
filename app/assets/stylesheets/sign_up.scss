@@ -16,28 +16,37 @@
     margin: auto;
   }
 
-  .actions {
-    height: 50px;
-    width: 24%;
-    margin-left: 38%;
+  h1 {
+    text-align: center;
+    font-family: 'Permanent Marker';
+  }
+}
 
-    input {
-      margin-top: 30px;
-      width: 100%;
-      height: 100%;
-      color: white;
-      font-size: 25px;
-      background: #28234F;
-    }
+.next-steps {
+  padding: 20px;
+  margin-top: 40px;
+}
 
-    input:hover {
-      margin-top: 30px;
-      width: 100%;
-      height: 100%;
-      color: white;
-      font-size: 25px;
-      background: #332c63;
-    }
+.actions {
+  height: 50px;
+  width: 20%;
+  margin-left: 40%;
+
+  input {
+    margin-top: 30px;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: 30px;
+    background: #28234F;
+    font-family: 'Permanent Marker';
   }
 
+  input:hover {
+    margin-top: 30px;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background: #332c63;
+  }
 }

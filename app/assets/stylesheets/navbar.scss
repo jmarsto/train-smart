@@ -20,6 +20,30 @@
   box-shadow: 0px 2px 2px #26312d;
 }
 
+#hover1 {
+  width: 300px;
+}
+
 #hover1 li {
   width: 100%;
+  :hover {
+    background-color: #332c63;
+  }
+}
+
+h1 a {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 4rem;
+}
+
+#sign-out a {
+  font-size: 1.3rem;
+}
+
+.f-dropdown {
+  min-width: 262px;
+}
+
+.f-open-dropdown {
+  min-width: 262px;
 }
