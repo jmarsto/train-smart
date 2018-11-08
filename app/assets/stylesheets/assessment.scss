@@ -1,12 +1,13 @@
 #progress-bar {
   width: 50%;
   margin-top: 30px;
-  margin-bottom: 0;
+  margin-bottom: 3px;
+  box-shadow: 0 2px 2px #28234F;
 }
 
 .progress-tile {
-  border: 1px solid black;
-  background-color: #e0dcd7;
+  border-right: 1px solid black;
+  background-color: #cbc7c3;
   height: 30px;
 }
 
@@ -21,17 +22,11 @@
   padding-top: 20px;
   min-width: 380px;
   width: 50%;
-  height: 50vh;
   margin: auto;
   box-shadow: 1px 2px 2px #28234F, -1px 2px 2px #28234F;
-  background-color: #b1b0bf;
-}
-
-.assessment h4 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 2.6rem;
-  margin-top: 0;
+  background-color: #555178;
+  color: #FBECD2;
+  text-shadow: 1px 1px black
 }
 
 .assessment div {
@@ -47,10 +42,34 @@
 }
 
 .assessment-tile {
-  background-color: #b1b0bf;
+  background-color: #555178;
 }
 
 .prompt {
+  color: #FBECD2;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2.6rem;
+  margin-top: 0;
   font-family: 'Nunito', sans-serif;
+}
 
+.form {
+  padding: 10px;
+  font-size: 3rem;
+}
+
+.form i:hover {
+  color: #FFCC71;
+}
+
+#submit {
+  font-size: 4rem;
+  border: 1px solid #FBECD2;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#submit:hover {
+  color: #FFCC71;
 }

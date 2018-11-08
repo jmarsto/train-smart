@@ -22,12 +22,21 @@ const ProgressBar = props => {
     )
   }
 
+  let nextStep = () => {
+    if (props.selectedStep < props.stepLimit) {
+      props.nextStep()
+    }
+  }
+
   return(
     <div id="progress-bar" className="row">
       <div className="progress-tile back small-2 columns" onClick={props.prevStep}>
         <i className="fa fa-angle-double-left" aria-hidden="true"></i>
       </div>
       {progressTiles}
+      <div className="progress-tile back small-2 columns" onClick={nextStep}>
+        <i className="fas fa-angle-double-right"></i>
+      </div>
     </div>
   )
 }
