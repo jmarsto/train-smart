@@ -44,7 +44,7 @@ class Assessment extends Component {
     }
   }
 
-  increaseStepLimitIfNecessary = (event) => {
+  increaseStepLimitIfNecessary = () => {
     if (this.state.selectedStep == this.state.stepLimit) {
       let changingLimit = this.state.stepLimit
       changingLimit++
@@ -52,11 +52,11 @@ class Assessment extends Component {
     }
   }
 
-  handleAssessmentSelection = (event) => {
-    let value = event.target.value === "true"
-    this.increaseStepLimitIfNecessary(event)
+  handleAssessmentSelection = (fieldName, selectedValue) => {
+    let setValue = selectedValue === "true"
+    this.increaseStepLimitIfNecessary()
     this.nextStep();
-    this.setState({ [event.target.name]: value })
+    this.setState({ [fieldName]: setValue })
   }
 
   postAssessment = (payload) => {
@@ -144,6 +144,7 @@ class Assessment extends Component {
     return (
       <div>
         <ProgressBar
+          nextStep = {this.nextStep}
           prevStep = {this.prevStep}
           selectedStep = {this.state.selectedStep}
           stepLimit = {this.state.stepLimit}

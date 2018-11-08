@@ -3,7 +3,7 @@ import React from 'react';
 const AssessmentSubmission = props => {
   return(
     <div className="assessment-tile">
-      <button onClick={props.submitAssessment}>Submit?</button>
+      <span id="submit" onClick={props.submitAssessment}>Submit?</span>
       <br />
     </div>
   )
