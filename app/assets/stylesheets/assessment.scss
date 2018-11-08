@@ -7,6 +7,8 @@
 
 .progress-tile {
   border-right: 1px solid black;
+  border-left: 1px solid black;
+  border-radius: 6px;
   background-color: #cbc7c3;
   height: 30px;
 }
@@ -16,6 +18,10 @@
   font-size: 1rem;
   display: block;
   text-align: left;
+}
+
+.back:hover {
+  background-color: #ffe4b8;
 }
 
 .assessment {
@@ -35,6 +41,10 @@
 
 .selectable {
   background-color: #fffbf5;
+}
+
+.selectable:hover {
+  background-color: #ffe4b8;
 }
 
 .selected {
