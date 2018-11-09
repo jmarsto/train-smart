@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import 'babel-polyfill';
 import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router';
 import Phase from './Phase';
-import EditAssessment from './EditAssessment';
 
 class Profile extends Component {
   constructor(props) {
