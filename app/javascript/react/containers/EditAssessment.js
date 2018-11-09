@@ -73,9 +73,10 @@ class EditAssessment extends Component {
     }
   }
 
-  handleAssessmentSelection = (event) => {
-    let value = event.target.value === "true"
-    this.setState({ [event.target.name]: value })
+
+  handleAssessmentSelection = (fieldName, selectedValue) => {
+    let setValue = selectedValue === "true"
+    this.setState({ [fieldName]: setValue })
   }
 
   render() {
@@ -114,8 +115,8 @@ class EditAssessment extends Component {
             labelTrue = "Endurance"
             labelFalse = "Technical Ability"
           />
+          <span id="submit" onClick={this.handleSubmit}>Submit?</span>
         </div>
-        <button onClick={this.handleSubmit}>Save</button>
       </div>
     )
   }
