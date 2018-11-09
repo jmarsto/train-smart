@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import 'babel-polyfill';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import Phase from './Phase'
+import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router';
+import Phase from './Phase';
+import EditAssessment from './EditAssessment';
 
 class Profile extends Component {
   constructor(props) {
@@ -48,9 +49,14 @@ class Profile extends Component {
     })
 
     return (
-      <div>
+      <div className="profile">
         <div className="plan">
           {phases}
+        </div>
+        <div className="sidebar">
+          <Link to='/edit'>
+            <i className="fas fa-user-edit"></i>
+          </Link>
         </div>
       </div>
     )
