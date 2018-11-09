@@ -29,7 +29,9 @@ const AssessmentTile = props => {
       <h4 className="prompt">{props.prompt}</h4>
       <form name={props.name} className="form row" >
         <div className="small-7 columns">
-          {props.labelTrue}
+          <div className="form-label">
+            {props.labelTrue}
+          </div>
           <br />
           <div id="true" onClick={handleChoice}>
             <i
@@ -40,7 +42,9 @@ const AssessmentTile = props => {
           </div>
         </div>
         <div className="small-7 columns">
-          {props.labelFalse}
+          <div className="form-label">
+            {props.labelFalse}
+          </div>
           <br />
           <div id="false" onClick={handleChoice}>
             <i
