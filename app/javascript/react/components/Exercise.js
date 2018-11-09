@@ -33,7 +33,12 @@ class Exercise extends Component {
   }
 
   render() {
-
+    let splitDescription = this.props.description.split('\n')
+    let showDescription = splitDescription.map(section => {
+      return(
+          <p>{section}</p>
+      )
+    })
     return(
       <div className="exercise" onMouseEnter={this.enter} onMouseLeave={this.leave}>
         <span>{this.props.name}</span>
@@ -46,8 +51,8 @@ class Exercise extends Component {
           shouldCloseOnOverlayClick={true}
           shouldCloseOnEsc={true}
           className="modal"
-          >
-          {this.props.description}
+        >
+          {showDescription}
         </ReactModal>
         <br />
       </div>
