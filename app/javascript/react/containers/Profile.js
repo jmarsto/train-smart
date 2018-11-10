@@ -50,6 +50,15 @@ class Profile extends Component {
     return (
       <div className="profile">
         <div className="plan">
+          <div className="week row week-labels">
+            <div className="small-2 columns">Sunday</div>
+            <div className="small-2 columns">Monday</div>
+            <div className="small-2 columns">Tuesday</div>
+            <div className="small-2 columns">Wednesday</div>
+            <div className="small-2 columns">Thursday</div>
+            <div className="small-2 columns">Friday</div>
+            <div className="small-2 columns">Saturday</div>
+          </div>
           {phases}
         </div>
         <div className="sidebar">
