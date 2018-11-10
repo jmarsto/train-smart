@@ -29,6 +29,11 @@
 
 #hover1 li {
   width: 100%;
+  a {
+    font-family: 'Prosto One', cursive;
+    text-align: center;
+    font-size: 0.9rem;
+  }
   :hover {
     background-color: #332c63;
   }
@@ -40,7 +45,8 @@ h1 a {
 }
 
 #sign-out a {
-  font-size: 1.3rem;
+  font-family: 'Prosto One', cursive;
+  font-size: 1.1rem;
 }
 
 .f-dropdown {
