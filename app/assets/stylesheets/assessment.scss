@@ -9,19 +9,17 @@
   border-right: 1px solid black;
   border-left: 1px solid black;
   border-radius: 6px;
-  background-color: #cbc7c3;
+  background: linear-gradient(to bottom, #fffbf5, #555178);
   height: 30px;
 }
 
 .back {
-  background-color: #fffbf5;
   font-size: 1rem;
   display: block;
   text-align: left;
 }
 
 .back:hover {
-  background-color: #ffe4b8;
 }
 
 .assessment {
@@ -41,15 +39,15 @@
 }
 
 .selectable {
-  background-color: #fffbf5;
+  background: linear-gradient(to bottom, #fffbf5, #555178);
 }
 
-.selectable:hover {
-  background-color: #ffe4b8;
+.selectable:hover, .back:hover {
+  background: linear-gradient(to bottom, #fffbf5 25%, #555178);
 }
 
 .selected {
-  background-color: #ffcc7a;
+  background: linear-gradient(to bottom, #fffbf5 10%, #28234F);
 }
 
 .assessment-tile {
