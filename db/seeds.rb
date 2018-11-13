@@ -26,7 +26,7 @@ Exercise.create([
   { type: se, name: "Shoulder Press", description: "Exercise Description..." },
   { type: se, name: "Dips", description: "Exercise Description..." },
   { type: se, name: "Lat Pull-Downs", description: "Exercise Description..." },
-  { type: arc, name: "ARC", description: "The Maximum Steady State:\n\n"\
+  { type: arc, name: "ARC", description: "Aerobic Restoration and Capillarity Training:\n\n"\
     " The highest level of intensity at which a muscle can continue to function aerobically,"\
     " and thus, indefinitely, is called the Maximum Steady State (MSS; aka aerobic threshold,"\
     " anaerobic threshold, or lactic threshold). Climbing at an intensity level above the MSS"\
@@ -34,7 +34,6 @@ Exercise.create([
     " effort becomes unsustainable, ultimately resulting in fatigue and eventual muscle failure."\
     " In endurance sports, it is often said that the MSS is the singlemost important determinant"\
     " of performance, and so the majority of training activities are geared toward improving it.\n\n"\
-    " Aerobic Restoration and Capillarity Training: \n\n"\
     " For rock climbing, the most practical method for raising the MSS is “aerobic respiration and"\
     " capillarity” (ARC) training. This consists of climbing for long, sustained periods as close as"\
     " possible to the MSS. This is best performed by climbing on vertical to slightly overhanging"\
@@ -57,9 +56,26 @@ Exercise.create([
     " Try starting with 2x or 3x 15-minute windows of moderate intensity, managing a steady load on the forearms."\
     " Progress to longer windows of climbing, recalibrating intensity appropriately so as to not exceed aerobic threshold."\
     " Shoot for 3x30min." },
-  { type: pt, name: "PT", description: "Exercise Description..." },
+  { type: pt, name: "PT", description: "Physical Therapy\n\n"\
+  "If you struggle with previous injuries, however acutely, it is important to strengthen"\
+  " not only the affected muscles or tendons, but those surrounding them as well. As your climbing progresses"\
+  " even a minor injury left unconsidered will become a limiting factor in performance."\
+  " If you do not have a pre-established PT routine that has helped you in the past, take the time"\
+  " to research and create one with the help of professional guidance.  Two half hour sessions a week"\
+  " can make the difference of complete immobility and unhindered performance on the rock.\n\n"\
+  "Consider how warm the affected areas of your body are before attempting high-intensity exercises."\
+  " If it is chronic inflammation you deal with, consider nutrition and hydration as equally vital parts"\
+  " of your self-care as stretching and warm-up exercises. Rice bucket exercises and inverse wrist curls"\
+  " can be helpful exercises to treat tendonitis in the elbow."},
   { type: pt, name: "Rice Bucket Exercises", description: "Exercise Description..." },
-  { type: hb, name: "Hangboard", description: "Exercise Description..." },
+  { type: hb, name: "Hangboard", description: "Hangboard Training Progression\n\n"\
+  "There are many resources available for education on the science of hangboard training."\
+  " Amongst them are the materials put out by the Anderson brothers, condensed here:"\
+  " https://www.trainingbeta.com/mark-and-mike-anderson-guide-to-hangboard-training/"\
+  " and more extensively, here: https://rockclimberstrainingmanual.com/training-for-rock-climbing/strength/\n\n"\
+  "Important to this phase of training is RESTING between hangboard workouts. To be effective, your body needs"\
+  " a period of recovery and subsequent supercompensation.  If we do not allow sufficient rest between"\
+  " workouts, we will not give opportunity to the physiological adaptation targetted through training."},
   { type: skills, name: "Silent Feet", description: "Exercise Description..." },
   { type: skills, name: "Hover Hands", description: "Exercise Description..." },
   { type: skills, name: "Two Points Off", description: "Exercise Description..." },
@@ -71,10 +87,28 @@ Exercise.create([
   { type: core, name: "Ring Progression", description: "Exercise Description..." },
   { type: core, name: "Planks", description: "Exercise Description..." },
   { type: core, name: "Soul-Squeezes", description: "Exercise Description..." },
-  { type: boulder, name: "LB", description: "Exercise Description... Limit Bouldering" },
+  { type: boulder, name: "LB", description: "Limit Bouldering\n\n"\
+  "Limit bouldering is arguably the ideal method for improving power and contact strength while focusing attention"\
+  " on sport-specific factors like technique and body strength. Limit bouldering is climbing short boulder problems"\
+  " that feature one to two crux moves that are right at the climber’s limit. Limit bouldering entails focusing on"\
+  " short boulder problems that emphasize one or two extremely hard moves (rather than problems that entail six to"\
+  " eight pretty hard moves, or 10 to 20 kinda hard moves). To improve recruitment and power, the number of"\
+  " repetitions must be small, and the intensity very high. Bouldering at a lower intensity is enjoyable and can be"\
+  " applied to other training goals, but for power training, the moves must be extremely difficult and few in number.\n"\
+  "(https://rockclimberstrainingmanual.com/training-for-rock-climbing/power/)"},
   { type: boulder, name: "4x4s", description: "Exercise Description..." },
-  { type: boulder, name: "LBC", description: "Exercise Description... Linked Boulder Circuits" },
+  { type: boulder, name: "LBC", description: "Linked Boulder Circuits\n\n"\
+  "Select a series of boulder problems that can be climbed in sequence without stopping. The boulder problems should"\
+  " include a total of 25-50 hand moves or 1-3 minutes of climbing depending on the type of route you are training for."\
+  " Completing all of the boulder problems in sequence is 1 set. To start, you’ll do 3-5 sets for each workout with 5 minutes"\
+  " rest between sets. As you progress through your training cycle, you’ll want to decrease the amount of rest time to around"\
+  " 2 minutes between sets. (http://blog.trango.com/training-takeover-power-endurance-and-linked-bouldering-circuits/)" },
   { type: boulder, name: "Lock-Off Laps", description: "Exercise Description..." },
-  { type: boulder, name: "WBL", description: "Exercise Description... Warmup Boulder Ladder" },
-  { type: campus, name: "Campus", description: "Exercise Description..." }
+  { type: boulder, name: "WBL", description: "Warmup Boulder Ladder\n\n"\
+  "Complete 1-3 problems of every grade that you can reliably climb, low to high. Taper down to one of each difficulty"\
+  " as you approach your limit. If you fall, try again - but this is not the time for projecting. Take time between each"\
+  " problem - this is a warm up, not a session. If you need more of a warmup, do some light traversing before this."},
+  { type: campus, name: "Campus", description: "Campus Board Training:\n\n"\
+  "Do your research on this aggressive exercise. Not for everyone."\
+  "(https://rockclimberstrainingmanual.com/2012/10/03/campus-training-part-1-history-theory-campus-board-construction/)" }
 ])
