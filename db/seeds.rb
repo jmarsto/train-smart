@@ -19,13 +19,21 @@ boulder = Type.find_by(name: "Boulder")
 campus = Type.find_by(name: "Campus")
 
 Exercise.create([
-  { type: se, name: "Inverted Row Progression", description: "Exercise Description..." },
+  { type: se, name: "Inverted Rows", description: "Inverted Row Progression:\n\n"\
+  "Video demo: https://youtu.be/A5QYcxf8FD8 \n"\
+  "To make this easier or harder, change the angle of your body. Closer to standing"\
+  " will be easier, while closer to horizontal will be harder." },
   { type: se, name: "Aerobic Exercise", description: "Exercise Description..." },
   { type: se, name: "Bicep Curls", description: "Exercise Description..." },
   { type: se, name: "Push-Ups", description: "Exercise Description..." },
   { type: se, name: "Shoulder Press", description: "Exercise Description..." },
   { type: se, name: "Dips", description: "Exercise Description..." },
   { type: se, name: "Lat Pull-Downs", description: "Exercise Description..." },
+  { type: se, name: "Pull Ups", description: "Pull Ups:\n\n"\
+  "An age old classic. Putting in some reps with the big pull muscles will keep the rest"\
+  " of your body engaged throughout your hangboard phase. Focus on form, keeping the scapula tucked"\
+  " back. Feel free to experiment with making the average pull up harder or easier, shooting to be able"\
+  " to accomplish around 3 sets of 10."  },
   { type: arc, name: "ARC", description: "Aerobic Restoration and Capillarity Training:\n\n"\
     " The highest level of intensity at which a muscle can continue to function aerobically,"\
     " and thus, indefinitely, is called the Maximum Steady State (MSS; aka aerobic threshold,"\

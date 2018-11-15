@@ -88,9 +88,13 @@ class PlanGenerator
 
     def construct_strength_phase
       hb = Exercise.find_by(name: "Hangboard")
+      rows = Exercise.find_by(name: "Inverted Rows")
+      pullups = Exercise.find_by(name: "Pull Ups")
 
       @phase_HB.days.each_slice(3) do |three_days|
         Workout.create(exercise: hb, day: three_days.first)
+        Workout.create(exercise: rows, day: three_days.first)
+        Workout.create(exercise: pullups, day: three_days.first)
       end
     end
 
