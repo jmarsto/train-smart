@@ -19,13 +19,22 @@ boulder = Type.find_by(name: "Boulder")
 campus = Type.find_by(name: "Campus")
 
 Exercise.create([
-  { type: se, name: "Inverted Row Progression", description: "Exercise Description..." },
+  { type: se, name: "Inverted Rows", description: "Inverted Row Progression:\n\n"\
+  "Video demo: https://youtu.be/A5QYcxf8FD8 \n"\
+  "To make this easier or harder, change the angle of your body. Closer to standing"\
+  " will be easier, while closer to horizontal will be harder." },
   { type: se, name: "Aerobic Exercise", description: "Exercise Description..." },
   { type: se, name: "Bicep Curls", description: "Exercise Description..." },
-  { type: se, name: "Push-Ups", description: "Exercise Description..." },
+  { type: se, name: "Push-Ups", description: "Push Ups:\n\n"\
+  "Find a quantity you can do just barely do 3 sets of, focusing on form and control." },
   { type: se, name: "Shoulder Press", description: "Exercise Description..." },
   { type: se, name: "Dips", description: "Exercise Description..." },
   { type: se, name: "Lat Pull-Downs", description: "Exercise Description..." },
+  { type: se, name: "Pull Ups", description: "Pull Ups:\n\n"\
+  "An age old classic. Putting in some reps with the big pull muscles will keep the rest"\
+  " of your body engaged throughout your hangboard phase. Focus on form, keeping the scapula tucked"\
+  " back. Feel free to experiment with making the average pull up harder or easier, shooting to be able"\
+  " to accomplish around 3 sets of 10."  },
   { type: arc, name: "ARC", description: "Aerobic Restoration and Capillarity Training:\n\n"\
     " The highest level of intensity at which a muscle can continue to function aerobically,"\
     " and thus, indefinitely, is called the Maximum Steady State (MSS; aka aerobic threshold,"\
@@ -67,7 +76,8 @@ Exercise.create([
   " If it is chronic inflammation you deal with, consider nutrition and hydration as equally vital parts"\
   " of your self-care as stretching and warm-up exercises. Rice bucket exercises and inverse wrist curls"\
   " can be helpful exercises to treat tendonitis in the elbow."},
-  { type: pt, name: "Rice Bucket Exercises", description: "Exercise Description..." },
+  { type: pt, name: "Rice Bucket", description: "Rice Bucket Exercises:\n\n"\
+  "https://www.youtube.com/watch?v=Qd_oKnHG1sc" },
   { type: hb, name: "Hangboard", description: "Hangboard Training Progression\n\n"\
   "There are many resources available for education on the science of hangboard training."\
   " Amongst them are the materials put out by the Anderson brothers, condensed here:"\
@@ -84,7 +94,8 @@ Exercise.create([
   { type: skills, name: "Momentum Climbing", description: "Exercise Description..." },
   { type: core, name: "Leg Lifts", description: "Exercise Description..." },
   { type: core, name: "Hanging Leg Raises", description: "Exercise Description..." },
-  { type: core, name: "Ring Progression", description: "Exercise Description..." },
+  { type: core, name: "Core", description: "Functional Core Training with Gymnastic Rings:\n\n"\
+  "https://rockclimberstrainingmanual.com/2015/05/27/functional-core-training/" },
   { type: core, name: "Planks", description: "Exercise Description..." },
   { type: core, name: "Soul-Squeezes", description: "Exercise Description..." },
   { type: boulder, name: "LB", description: "Limit Bouldering\n\n"\
@@ -95,7 +106,8 @@ Exercise.create([
   " eight pretty hard moves, or 10 to 20 kinda hard moves). To improve recruitment and power, the number of"\
   " repetitions must be small, and the intensity very high. Bouldering at a lower intensity is enjoyable and can be"\
   " applied to other training goals, but for power training, the moves must be extremely difficult and few in number.\n"\
-  "(https://rockclimberstrainingmanual.com/training-for-rock-climbing/power/)"},
+  "Outdoor bouldering is a fine substitute for gym training when possible for limit bouldering.\n"\
+  "(https://rockclimberstrainingmanual.com/training-for-rock-climbing/power/)" },
   { type: boulder, name: "4x4s", description: "Exercise Description..." },
   { type: boulder, name: "LBC", description: "Linked Boulder Circuits\n\n"\
   "Select a series of boulder problems that can be climbed in sequence without stopping. The boulder problems should"\
