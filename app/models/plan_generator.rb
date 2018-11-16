@@ -12,6 +12,7 @@ class PlanGenerator
 
     @arc = Exercise.find_by(name: "ARC")
     @wbl = Exercise.find_by(name: "WBL")
+    @core = Exercise.find_by(name: "Core")
 
     create_phases_for new_plan
     calculate_weeks_in_phases_of new_plan
@@ -75,14 +76,22 @@ class PlanGenerator
     end
 
     def construct_base_fitness_phase
+      pushups = Exercise.find_by(name: "Push-Ups")
+
       if @assessment.days
         @phase_BF.days.each_slice(2) do |two_days|
           Workout.create(exercise: @arc, day: two_days.first)
+          Workout.create(exercise: pushups, day: two_days.first)
         end
       else
         @phase_BF.days.each_slice(3) do |three_days|
           Workout.create(exercise: @arc, day: three_days.first)
+          Workout.create(exercise: pushups, day: three_days.first)
         end
+      end
+
+      @phase_BF.weeks.each do |week|
+        Workout.create(exercise: @core, day: week.days.fourth)
       end
     end
 
@@ -96,19 +105,30 @@ class PlanGenerator
         Workout.create(exercise: rows, day: three_days.first)
         Workout.create(exercise: pullups, day: three_days.first)
       end
+
+      @phase_HB.weeks.each do |week|
+        Workout.create(exercise: @core, day: week.days.fourth)
+      end
     end
 
     def construct_power_phase
       lb = Exercise.find_by(name: "LB")
       campus = Exercise.find_by(name: "Campus")
 
-      if @assessment.crusher
+      if @assessment.crusher && @assessment.days
         @phase_POW.weeks.each do |week|
           Workout.create(exercise: lb, day: week.days.find_by(name: "Sunday"))
           Workout.create(exercise: lb, day: week.days.find_by(name: "Tuesday"))
           Workout.create(exercise: @wbl, day: week.days.find_by(name: "Thursday"))
           Workout.create(exercise: campus, day: week.days.find_by(name: "Thursday"))
           Workout.create(exercise: lb, day: week.days.find_by(name: "Saturday"))
+        end
+      elsif @assessment.crusher && !@assessment.days
+        @phase_POW.weeks.each do |week|
+          Workout.create(exercise: lb, day: week.days.find_by(name: "Sunday"))
+          Workout.create(exercise: lb, day: week.days.find_by(name: "Tuesday"))
+          Workout.create(exercise: @wbl, day: week.days.find_by(name: "Thursday"))
+          Workout.create(exercise: campus, day: week.days.find_by(name: "Thursday"))
         end
       else
         @phase_POW.weeks.each do |week|
@@ -131,10 +151,16 @@ class PlanGenerator
 
     def consider_pt_for plan
       pt = Exercise.find_by(name: "PT")
+      rice = Exercise.find_by(name: "Rice Bucket")
 
       if @assessment.pt
         plan.days.each_slice(4) do |four_days|
           Workout.create(exercise: pt, day: four_days.first)
+        end
+        plan.phases.first.days.each do |day|
+          if day.workouts.count > 1
+            Workout.create(exercise: rice, day: day)
+          end
         end
       end
     end
