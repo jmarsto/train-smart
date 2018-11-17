@@ -115,7 +115,7 @@ class EditAssessment extends Component {
             labelTrue = "Endurance"
             labelFalse = "Technical Ability"
           />
-          <span id="submit" onClick={this.handleSubmit}>Submit?</span>
+          <span id="submit" onClick={this.handleSubmit}>Submit</span>
         </div>
       </div>
     )
