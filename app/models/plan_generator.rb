@@ -144,8 +144,12 @@ class PlanGenerator
       lbc = Exercise.find_by(name: "LBC")
 
       @phase_PE.weeks.each do |week|
-        Workout.create(exercise: lbc, day: week.days.find_by(name: "Wednesday"))
         Workout.create(exercise: @wbl, day: week.days.find_by(name: "Wednesday"))
+        Workout.create(exercise: lbc, day: week.days.find_by(name: "Wednesday"))
+        Workout.create(exercise: @wbl, day: week.days.find_by(name: "Saturday"))
+        Workout.create(exercise: lbc, day: week.days.find_by(name: "Saturday"))
+        Workout.create(exercise: @wbl, day: week.days.find_by(name: "Sunday"))
+        Workout.create(exercise: lbc, day: week.days.find_by(name: "Sunday"))
       end
     end
 

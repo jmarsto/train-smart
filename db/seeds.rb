@@ -114,7 +114,9 @@ Exercise.create([
   " include a total of 25-50 hand moves or 1-3 minutes of climbing depending on the type of route you are training for."\
   " Completing all of the boulder problems in sequence is 1 set. To start, you’ll do 3-5 sets for each workout with 5 minutes"\
   " rest between sets. As you progress through your training cycle, you’ll want to decrease the amount of rest time to around"\
-  " 2 minutes between sets. (http://blog.trango.com/training-takeover-power-endurance-and-linked-bouldering-circuits/)" },
+  " 2 minutes between sets. (http://blog.trango.com/training-takeover-power-endurance-and-linked-bouldering-circuits/)\n\n"\
+  "Pumpy redpoint attempts make a good weekend replacement to satisfy the same training needs, while translating training to"\
+  " more outdoor conditioning." },
   { type: boulder, name: "Lock-Off Laps", description: "Exercise Description..." },
   { type: boulder, name: "WBL", description: "Warmup Boulder Ladder\n\n"\
   "Complete 1-3 problems of every grade that you can reliably climb, low to high. Taper down to one of each difficulty"\
