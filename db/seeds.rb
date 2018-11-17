@@ -107,6 +107,7 @@ Exercise.create([
   " repetitions must be small, and the intensity very high. Bouldering at a lower intensity is enjoyable and can be"\
   " applied to other training goals, but for power training, the moves must be extremely difficult and few in number.\n"\
   "Outdoor bouldering is a fine substitute for gym training when possible for limit bouldering.\n"\
+  "Make sure your body is warm and ready to try hard before limit bouldering.\n"\
   "(https://rockclimberstrainingmanual.com/training-for-rock-climbing/power/)" },
   { type: boulder, name: "4x4s", description: "Exercise Description..." },
   { type: boulder, name: "LBC", description: "Linked Boulder Circuits\n\n"\
