@@ -5,7 +5,7 @@ const ProgressBar = props => {
   let progressTiles = [];
 
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 10; i++) {
     let stepNumber = i + 1
     let handleClick = () => {
       props.selectStep(stepNumber)

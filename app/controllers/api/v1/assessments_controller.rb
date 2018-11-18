@@ -35,6 +35,6 @@ class Api::V1::AssessmentsController < ApplicationController
 
   private
     def assessment_params
-      params.require(:assessment).permit(:pt, :crusher, :days, :enduro)
+      params.require(:assessment).permit(:pt, :crusher, :days, :enduro, :trainable, :static, :mental, :flexible, :tendonitis)
     end
 end

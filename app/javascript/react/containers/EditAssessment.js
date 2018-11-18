@@ -84,12 +84,44 @@ class EditAssessment extends Component {
       <div className="edit">
         <div className="assessment">
           <AssessmentTile
+            name = "trainable"
+            prompt = "Can you climb 5.10?"
+            handleSelection = {this.handleAssessmentSelection}
+            selection = {this.state.trainable}
+            labelTrue = "Yes"
+            labelFalse = "No"
+          />
+          <AssessmentTile
+            name = "days"
+            prompt = "Do you have MORE than 2-3 days a week to commit to training?"
+            handleSelection = {this.handleAssessmentSelection}
+            selection = {this.state.days}
+            labelTrue = "Yes"
+            labelFalse = "No"
+          />
+          <AssessmentTile
             name = "pt"
             prompt = "Do you have a previous injury that affects your climbing?"
             handleSelection = {this.handleAssessmentSelection}
             selection = {this.state.pt}
             labelTrue = "Yes"
             labelFalse = "No"
+          />
+          <AssessmentTile
+            name = "static"
+            prompt = "Your style: slow and cautious, or quick and scrappy?"
+            handleSelection = {this.handleAssessmentSelection}
+            selection = {this.state.static}
+            labelTrue = "Static"
+            labelFalse = "Dynamic"
+          />
+          <AssessmentTile
+            name = "mental"
+            prompt = "Go for it and maybe fall, or call 'take'?"
+            handleSelection = {this.handleAssessmentSelection}
+            selection = {this.state.mental}
+            labelTrue = "Go for it"
+            labelFalse = "Take"
           />
           <AssessmentTile
             name = "crusher"
@@ -100,10 +132,18 @@ class EditAssessment extends Component {
             labelFalse = "No"
           />
           <AssessmentTile
-            name = "days"
-            prompt = "Do you have MORE than 2-3 days a week to commit to training?"
+            name = "flexible"
+            prompt = "Is flexibility often an obstacle on harder climbs?"
             handleSelection = {this.handleAssessmentSelection}
-            selection = {this.state.days}
+            selection = {this.state.flexible}
+            labelTrue = "No"
+            labelFalse = "Yes"
+          />
+          <AssessmentTile
+            name = "tendonitis"
+            prompt = "Are you affected by tendonitis?"
+            handleSelection = {this.handleAssessmentSelection}
+            selection = {this.state.tendonitis}
             labelTrue = "Yes"
             labelFalse = "No"
           />

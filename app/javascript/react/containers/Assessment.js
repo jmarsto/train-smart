@@ -14,7 +14,12 @@ class Assessment extends Component {
       pt: null,
       crusher: null,
       days: null,
-      enduro: null
+      enduro: null,
+      trainable: null,
+      static: null,
+      mental: null,
+      flexible: null,
+      tendonitis: null
     };
     this.nextStep = this.nextStep.bind(this)
     this.prevStep = this.prevStep.bind(this)
@@ -90,7 +95,12 @@ class Assessment extends Component {
       pt: this.state.pt,
       crusher: this.state.crusher,
       days: this.state.days,
-      enduro: this.state.enduro
+      enduro: this.state.enduro,
+      trainable: this.state.trainable,
+      static: this.state.static,
+      mental: this.state.mental,
+      flexible: this.state.flexible,
+      tendonitis: this.state.tendonitis
     }
     this.postAssessment(payload)
   }
@@ -100,23 +110,14 @@ class Assessment extends Component {
       switch (this.state.selectedStep) {
         case 1:
           return <AssessmentTile
-            name = "pt"
-            prompt = "Do you have a previous injury that affects your climbing?"
+            name = "trainable"
+            prompt = "Can you climb 5.10?"
             handleSelection = {this.handleAssessmentSelection}
-            selection = {this.state.pt}
+            selection = {this.state.trainable}
             labelTrue = "Yes"
             labelFalse = "No"
           />
         case 2:
-          return <AssessmentTile
-            name = "crusher"
-            prompt = "Have you ever sent 5.12 or V6?"
-            handleSelection = {this.handleAssessmentSelection}
-            selection = {this.state.crusher}
-            labelTrue = "Yes"
-            labelFalse = "No"
-          />
-        case 3:
           return <AssessmentTile
             name = "days"
             prompt = "Do you have MORE than 2-3 days a week to commit to training?"
@@ -125,7 +126,61 @@ class Assessment extends Component {
             labelTrue = "Yes"
             labelFalse = "No"
           />
+        case 3:
+          return <AssessmentTile
+            name = "pt"
+            prompt = "Do you have a previous injury that affects your climbing?"
+            handleSelection = {this.handleAssessmentSelection}
+            selection = {this.state.pt}
+            labelTrue = "Yes"
+            labelFalse = "No"
+          />
         case 4:
+          return <AssessmentTile
+            name = "static"
+            prompt = "Your style: slow and cautious, or quick and scrappy?"
+            handleSelection = {this.handleAssessmentSelection}
+            selection = {this.state.static}
+            labelTrue = "Static"
+            labelFalse = "Dynamic"
+          />
+        case 5:
+          return <AssessmentTile
+            name = "mental"
+            prompt = "Go for it and maybe fall, or call 'take'?"
+            handleSelection = {this.handleAssessmentSelection}
+            selection = {this.state.mental}
+            labelTrue = "Go for it"
+            labelFalse = "Take"
+          />
+        case 6:
+          return <AssessmentTile
+            name = "crusher"
+            prompt = "Have you ever sent 5.12 or V6?"
+            handleSelection = {this.handleAssessmentSelection}
+            selection = {this.state.crusher}
+            labelTrue = "Yes"
+            labelFalse = "No"
+          />
+        case 7:
+          return <AssessmentTile
+            name = "flexible"
+            prompt = "Is flexibility often an obstacle on harder climbs?"
+            handleSelection = {this.handleAssessmentSelection}
+            selection = {this.state.flexible}
+            labelTrue = "No"
+            labelFalse = "Yes"
+          />
+        case 8:
+          return <AssessmentTile
+            name = "tendonitis"
+            prompt = "Are you affected by tendonitis?"
+            handleSelection = {this.handleAssessmentSelection}
+            selection = {this.state.tendonitis}
+            labelTrue = "Yes"
+            labelFalse = "No"
+          />
+        case 9:
           return <AssessmentTile
             name = "enduro"
             prompt = "When projecting a route, which is the limiting factor?"
@@ -134,7 +189,7 @@ class Assessment extends Component {
             labelTrue = "Endurance"
             labelFalse = "Technical Ability"
           />
-        case 5:
+        case 10:
           return <AssessmentSubmission
             submitAssessment = {this.handleAssessmentSubmission}
           />
