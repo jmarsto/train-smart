@@ -30,11 +30,11 @@ const ProgressBar = props => {
 
   return(
     <div id="progress-bar" className="row">
-      <div className="progress-tile back small-2 columns" onClick={props.prevStep}>
+      <div className="progress-tile selectable back small-2 columns" onClick={props.prevStep}>
         <i className="fa fa-angle-double-left" aria-hidden="true"></i>
       </div>
       {progressTiles}
-      <div className="progress-tile back small-2 columns" onClick={nextStep}>
+      <div className="progress-tile selectable back small-2 columns" onClick={nextStep}>
         <i className="fas fa-angle-double-right"></i>
       </div>
     </div>

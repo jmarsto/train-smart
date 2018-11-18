@@ -9,14 +9,13 @@
   border-right: 1px solid black;
   border-left: 1px solid black;
   border-radius: 6px;
-  background: linear-gradient(to bottom, #fffbf5, #555178);
+  background: linear-gradient(to bottom, #fffbf5, #585671);
   height: 30px;
-}
-
-.back {
-  font-size: 1rem;
-  display: block;
-  text-align: left;
+  text-align: center;
+  i {
+    padding-top: 6px;
+    text-shadow: 0px 0px 10px #FAECD4;
+  }
 }
 
 .back:hover {
@@ -39,15 +38,15 @@
 }
 
 .selectable {
-  background: linear-gradient(to bottom, #fffbf5, #555178);
+  background: linear-gradient(to bottom, #fffbf5, #484285);
 }
 
-.selectable:hover, .back:hover {
-  background: linear-gradient(to bottom, #fffbf5 25%, #555178);
+.selectable:hover, {
+  background: linear-gradient(to bottom, #fffbf5 25%, #484285);
 }
 
 .selected {
-  background: linear-gradient(to bottom, #fffbf5 10%, #28234F);
+  background: linear-gradient(to bottom, #ffe9e0 10%, #080047);
 }
 
 .assessment-tile {
