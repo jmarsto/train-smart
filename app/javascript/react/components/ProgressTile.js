@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ProgressTile = props => {
-  let classStatus = "progress-tile small-2 columns"
+  let classStatus = "progress-tile small-1 columns"
 
   if (props.id <= props.stepLimit) {
     classStatus += " selectable"
