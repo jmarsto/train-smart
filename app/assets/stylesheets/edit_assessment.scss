@@ -1,8 +1,42 @@
 .edit {
   margin-top: 50px;
   text-align: center;
-}
 
-.edit button {
-  margin-top: 20px
+  .assessment-tile {
+    background-color: #555178;
+    height: 40vh;
+    padding-bottom: 40px;
+    border-bottom: 2px dashed #FBECD2;
+  }
+
+  .prompt {
+    color: #FBECD2;
+    padding: 15px;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 0;
+    font-family: 'Prosto One', cursive;
+    text-shadow: 1px 3px 2px #28234F;
+  }
+
+  .form-label {
+    height: 30px;
+  }
+
+  .form {
+    padding: 10px;
+    font-size: 2rem;
+  }
+
+  .form i {
+    font-size: 2rem;
+  }
+
+  .form i:hover {
+    color: #FFCC71;
+  }
+
+  button {
+    margin-top: 20px
+  }
 }
