@@ -86,12 +86,40 @@ Exercise.create([
   "Important to this phase of training is RESTING between hangboard workouts. To be effective, your body needs"\
   " a period of recovery and subsequent supercompensation.  If we do not allow sufficient rest between"\
   " workouts, we will not give opportunity to the physiological adaptation targetted through training."},
-  { type: skills, name: "Silent Feet", description: "Exercise Description..." },
-  { type: skills, name: "Hover Hands", description: "Exercise Description..." },
-  { type: skills, name: "Two Points Off", description: "Exercise Description..." },
-  { type: skills, name: "Downclimbing", description: "Exercise Description..." },
-  { type: skills, name: "Economy of Movement", description: "Exercise Description..." },
-  { type: skills, name: "Momentum Climbing", description: "Exercise Description..." },
+  { type: skills, name: "ARC+", description: "Dynamic Aerobic Restoration and Capillarity Training:\n\n"\
+  "Practice as if for regular ARC Training, but practice big moves that require two moving limbs. Our goal here"\
+  " is to become more comfortable in dynamic movement, moments of transition, and latching holds from big moves."\
+  " Push yourself to huck for holds that you might not be able to stick, or maybe you don't know how positive they are."\
+  " The more uncertainty and dynamic movement you can incorporate into your practice, the more prepared you will be on"\
+  " your future onsight attempts. If frequent dynamic movement is too tiresome to stay within your aerobic threshold,"\
+  " try to 'climb with momentum', keeping your body moving upwards at a consistent speed. Accelerate until you feel a bit"\
+  " of haste. Force yourself to keep moving, regardless of if you have found your next ideal hold. This does not need to be"\
+  " the entire time of your ARC exercise, but incorporating speed and movement into your regular practice will help when it"\
+  " comes to dynamic movement in the future."},
+  { type: skills, name: "ARC-", description: "Static Aerobic Restoration and Capillarity Training:\n\n"\
+  "Practice as if for regular ARC Training, but practice efficiency of movement, precise footwork, and try to slow down."\
+  " If you are a hastier, more dynamic climber, use this as an opportunity to work your static movement. Hover your hand over"\
+  " your next hold for a couple seconds before using it. Keep your breath slow and deep. Maintain control. Climb as if you are"\
+  " soloing or being penalized for making noise on the wall." },
+  { type: skills, name: "Fall", description: "Lead Fall Progression\n\n"\
+  "Training our mind is just as important as training our body. And, if our mental fortitude is ever a limiting factor"\
+  " in our performance, it might be argued that the training of the mind is even more important than physical training. "\
+  "To progress mentally as a climber, we must challenge our fears. Namely, that of falling. If we do not attempt moves because "\
+  "of fear, we will stay away from truly performing at our limits. The margin between moves we can do securely and confidently"\
+  " and moves that are desperate and insecure, but still possible, is a wide one. Arno Ilgner has several written resources "\
+  "for mental training that are extremely worthwhile. Anyone can benefit from reading his lessons.\n"\
+  "To become more comfortable with falling, and to be safer when we do fall, it is something we must practice. ARCing on lead "\
+  "can give ample opportunity for practicing falling. Start by falling AT your last clipped quickdraw. Fall at least once each"\
+  " session. Increase the distance of your fall gradually and safely session to session. Keep your body relaxed and your eyes"\
+  " open and alert. Only bite of what you can chew - we do not want to make ourselves MORE afraid. We want gentle exposure"\
+  " therapy in a controlled, safe environment. And then, when the day comes to execute the last move of our project, well above"\
+  " our last draw - we will have the confidence to go for it!" },
+  { type: skills, name: "Flexibility", description: "Flexibility Training\n\n"\
+  "You have indicated that flexibility is sometimes a limiting factor to your athletic performance."\
+  " Find a window of time to warm up your body with light aerobic exercise, and stretch. Maybe you do this while"\
+  " watching TV.  Maybe you sign up for a weekly yoga class. Maybe you stretch thoroughly during each climbing session."\
+  " Regardless of how it takes shape, it is important to commit to a regular practice to improve your mobility. Identify"\
+  " what parts of your body are not as flexible as you hope, warm them up, and show them some love. " },
   { type: core, name: "Leg Lifts", description: "Exercise Description..." },
   { type: core, name: "Hanging Leg Raises", description: "Exercise Description..." },
   { type: core, name: "Core", description: "Functional Core Training with Gymnastic Rings:\n\n"\

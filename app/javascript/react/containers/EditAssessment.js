@@ -10,7 +10,12 @@ class EditAssessment extends Component {
       pt: null,
       crusher: null,
       days: null,
-      enduro: null
+      enduro: null,
+      trainable: null,
+      static: null,
+      mental: null,
+      flexible: null,
+      tendonitis: null
     };
     this.handleAssessmentSelection = this.handleAssessmentSelection.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,7 +40,12 @@ class EditAssessment extends Component {
         pt: assessment.pt,
         crusher: assessment.crusher,
         days: assessment.days,
-        enduro: assessment.enduro
+        enduro: assessment.enduro,
+        trainable: assessment.trainable,
+        static: assessment.static,
+        mental: assessment.mental,
+        flexible: assessment.flexible,
+        tendonitis: assessment.tendonitis
       });
     });
   }
@@ -61,11 +71,24 @@ class EditAssessment extends Component {
   handleSubmit = (event) => {
     let accept = confirm("Are you sure you want to update your assessment? This will likely alter your plan")
     if (accept == true) {
+      if (!this.state.trainable) {
+        let confirmString = "You have answered 'no' to climbing 5.10. The best practice"
+        confirmString += " you can get is through simply climbing. Focus on low intensity volume,"
+        confirmString += " and pick up movement skills and base fitness.  When you can regularly"
+        confirmString += " climb 5.10, come back and we'll get more specific. The training program that "
+        confirmString += "follows is an example of what one might look like for you."
+        confirm(confirmString)
+      }
       let payload = {
         pt: this.state.pt,
         crusher: this.state.crusher,
         days: this.state.days,
-        enduro: this.state.enduro
+        enduro: this.state.enduro,
+        trainable: this.state.trainable,
+        static: this.state.static,
+        mental: this.state.mental,
+        flexible: this.state.flexible,
+        tendonitis: this.state.tendonitis
       }
       this.saveUpdates(payload);
     } else {

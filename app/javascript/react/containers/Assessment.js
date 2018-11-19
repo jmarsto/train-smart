@@ -91,6 +91,14 @@ class Assessment extends Component {
 
   handleAssessmentSubmission = (event) => {
     event.preventDefault();
+    if (!this.state.trainable) {
+      let confirmString = "You have answered 'no' to climbing 5.10. The best practice"
+      confirmString += " you can get is through simply climbing. Focus on low intensity volume,"
+      confirmString += " and pick up movement skills and base fitness.  When you can regularly"
+      confirmString += " climb 5.10, come back and we'll get more specific. The training program that "
+      confirmString += "follows is an example of what one might look like for you."
+      confirm(confirmString)
+    }
     let payload = {
       pt: this.state.pt,
       crusher: this.state.crusher,
