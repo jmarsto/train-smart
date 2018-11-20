@@ -13,7 +13,7 @@ class PlanGenerator
     @arc = Exercise.find_by(name: "ARC")
     @wbl = Exercise.find_by(name: "WBL")
     @core = Exercise.find_by(name: "Core")
-    @rice = Exercise.find_by(name: "Rice Bucket")
+    @rice = Exercise.find_by(name: "Rice")
 
     create_phases_for new_plan
     calculate_weeks_in_phases_of new_plan
