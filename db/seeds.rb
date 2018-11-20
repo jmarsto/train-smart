@@ -76,7 +76,7 @@ Exercise.create([
   " If it is chronic inflammation you deal with, consider nutrition and hydration as equally vital parts"\
   " of your self-care as stretching and warm-up exercises. Rice bucket exercises and inverse wrist curls"\
   " can be helpful exercises to treat tendonitis in the elbow."},
-  { type: pt, name: "Rice Bucket", description: "Rice Bucket Exercises:\n\n"\
+  { type: pt, name: "Rice", description: "Rice Bucket Exercises:\n\n"\
   "https://www.youtube.com/watch?v=Qd_oKnHG1sc" },
   { type: hb, name: "Hangboard", description: "Hangboard Training Progression\n\n"\
   "There are many resources available for education on the science of hangboard training."\
