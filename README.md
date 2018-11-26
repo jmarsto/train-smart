@@ -7,6 +7,7 @@ It is deployed on Heroku at:
 
 ### https://obscure-earth-36641.herokuapp.com/
 
+
 Sign-up is easy, and the user is immediately given a 10 step self-assessment to analyze their strengths and weaknesses as a rock-climber.
 
 Upon submission, a personalized training plan is generated from their answers.
