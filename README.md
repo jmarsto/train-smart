@@ -16,5 +16,7 @@ The user can then read about the different suggested exercises which are laid ou
 I intend to make these plans editable with drag 'n' drop, and hope to be able to export them as google calendars.
 
 The app is built on Rails, with a React front-end.
+
 User authentication is handled with Devise.
+
 The informational modals were created with react-modal (https://github.com/reactjs/react-modal)
