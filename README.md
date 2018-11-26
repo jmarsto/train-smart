@@ -1,6 +1,6 @@
 # TrainSmart
 
-This app was built as the culmination of my experience at Launch Academy.
+This app was built as the culmination of my experience at Launch Academy. (https://launchacademy.com/)
 
 It generates custom training plans for rock climbers based on their answers to a ten step self-assessment.
 It is deployed on Heroku at:
