@@ -1,24 +1,14 @@
-# README
+# TrainSmart
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app was built as the culmination of my experience at Launch Academy.
 
-Things you may want to cover:
+It generates custom training plans for rock climbers based on their answers to a ten step self-assessment.
+It is deployed on Heroku at https://obscure-earth-36641.herokuapp.com/
 
-* Ruby version
+Sign-up is easy, and the user is immediately given a 10 step self-assessment to analyze their strengths and weaknesses as a rock-climber.
 
-* System dependencies
+Upon submission, a personalized training plan is generated from their answers.
 
-* Configuration
+The user can then read about the different suggested exercises which are laid out for them in calendar form, and they can edit their answers to generate a new training plan.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+I intend to make these plans editable with drag 'n' drop, and hope to be able to export them as google calendars.
