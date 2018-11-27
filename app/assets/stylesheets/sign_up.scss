@@ -2,6 +2,7 @@
   font-family: 'Permanent Marker';
   padding-left: 40px;
   color: #28234F;
+  text-shadow: 1px 1px 1px #fdf7ed, -1px 1px 1px #fdf7ed, 1px -1px 1px #fdf7ed, -1px -1px 1px #fdf7ed;
 }
 
 .login-fail {
@@ -11,15 +12,26 @@
   padding-right: 20px;
 }
 
+.sign-up-page {
+  background-image: asset_url("sharma.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 695px;
+}
+
 .sign-up {
   width: 80%;
   margin: auto;
   margin-top: 40px;
+  border-radius: 5px;
+  background: rgba(85, 81, 120, 0.55);
+  box-shadow: 1px 1px 10px 1px #141127, -1px 1px 10px 1px #141127;
 
   h4 {
     text-align: center;
-    color: #555178;
+    color: #f9e9cd;
     font-family: 'Permanent Marker';
+    text-shadow: 2px 2px 3px #28234F;
   }
 
   h2 {
@@ -28,16 +40,22 @@
 
   label {
     padding-left: 10px;
+    color: #fdf7ed;
   }
 
   .field {
     width: 60%;
     margin: auto;
+    color: #28234F;
+    em {
+      text-shadow: 1px 0px 2px #fdf7ed;
+    }
   }
 
   h1 {
     text-align: center;
-    color: #28234F;
+    color: white;
+    text-shadow: 2px 2px 3px #28234F, -2px 2px 3px #28234F;
     font-family: 'Permanent Marker';
   }
 }
