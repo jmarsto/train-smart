@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { Draggable } from 'react-beautiful-dnd'
+
 import ReactModal from 'react-modal';
+
 ReactModal.setAppElement('#app');
 
 class Exercise extends Component {
@@ -34,28 +37,40 @@ class Exercise extends Component {
 
   render() {
     let splitDescription = this.props.description.split('\n')
-    let showDescription = splitDescription.map(section => {
+    let showDescription = splitDescription.map((section, index) => {
       return(
-          <p>{section}</p>
+          <p key={index}>{section}</p>
       )
     })
+
     return(
-      <div className="exercise" onMouseEnter={this.enter} onMouseLeave={this.leave}>
-        <span>{this.props.name}</span>
-        {this.state.hover &&
-          <span className="info-icon" onClick={this.handleOpenModal}><i className="fa fa-info-circle" aria-hidden="true"></i></span>}
-        <ReactModal
-          isOpen={this.state.showModal}
-          contentLabel="modal"
-          onRequestClose={this.handleCloseModal}
-          shouldCloseOnOverlayClick={true}
-          shouldCloseOnEsc={true}
-          className="modal"
-        >
-          {showDescription}
-        </ReactModal>
-        <br />
-      </div>
+      <Draggable draggableId={`${this.props.day}-${this.props.id}`} index={this.props.index}>
+        {(provided, snapshot) => (
+          <div
+            className="exercise"
+            onMouseEnter={this.enter}
+            onMouseLeave={this.leave}
+            {...provided.draggableProps}
+            {...provided.dragHandleProps}
+            ref={provided.innerRef}
+          >
+            <span>{this.props.name}</span>
+            {this.state.hover &&
+              <span className="info-icon" onClick={this.handleOpenModal}><i className="fa fa-info-circle" aria-hidden="true"></i></span>}
+            <ReactModal
+              isOpen={this.state.showModal}
+              contentLabel="modal"
+              onRequestClose={this.handleCloseModal}
+              shouldCloseOnOverlayClick={true}
+              shouldCloseOnEsc={true}
+              className="modal"
+            >
+              {showDescription}
+            </ReactModal>
+            <br />
+          </div>
+        )}
+      </Draggable>
     )
   }
 }
