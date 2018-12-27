@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import 'babel-polyfill';
 import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router';
+import { DragDropContext } from 'react-beautiful-dnd';
+
 import Phase from './Phase';
 
 class Profile extends Component {
@@ -11,6 +13,10 @@ class Profile extends Component {
         phases: []
       }
     };
+  }
+
+  onDragEnd = result => {
+    console.log("drag");
   }
 
   componentDidMount() {
@@ -48,25 +54,27 @@ class Profile extends Component {
     })
 
     return (
-      <div className="profile">
-        <div className="plan">
-          <div className="week row week-labels">
-            <div className="small-2 columns">Sunday</div>
-            <div className="small-2 columns">Monday</div>
-            <div className="small-2 columns">Tuesday</div>
-            <div className="small-2 columns">Wednesday</div>
-            <div className="small-2 columns">Thursday</div>
-            <div className="small-2 columns">Friday</div>
-            <div className="small-2 columns">Saturday</div>
+      <DragDropContext onDragEnd={this.onDragEnd}>
+        <div className="profile">
+          <div className="plan">
+            <div className="week row week-labels">
+              <div className="small-2 columns">Sunday</div>
+              <div className="small-2 columns">Monday</div>
+              <div className="small-2 columns">Tuesday</div>
+              <div className="small-2 columns">Wednesday</div>
+              <div className="small-2 columns">Thursday</div>
+              <div className="small-2 columns">Friday</div>
+              <div className="small-2 columns">Saturday</div>
+            </div>
+            {phases}
           </div>
-          {phases}
+          <div className="sidebar">
+            <Link to='/edit'>
+              <i className="fas fa-user-edit"></i>
+            </Link>
+          </div>
         </div>
-        <div className="sidebar">
-          <Link to='/edit'>
-            <i className="fas fa-user-edit"></i>
-          </Link>
-        </div>
-      </div>
+      </DragDropContext>
     )
   }
 }
