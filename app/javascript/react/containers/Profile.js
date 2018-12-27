@@ -16,7 +16,35 @@ class Profile extends Component {
   }
 
   onDragEnd = result => {
-    console.log("drag");
+    let sourceDayId = result.source.droppableId
+    let destinationDayId = result.destination.droppableId
+    let exerciseId = result.draggableId.split("-")[1]
+
+    fetch(`/api/v1/programs/${this.state.latestPlan.id}`, {
+      method: 'PATCH',
+      body: JSON.stringify({sourceDayId, destinationDayId, exerciseId}),
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json' },
+      credentials: 'same-origin'
+    })
+    .then(response => {
+      if (response.ok) {
+        return response.json()
+      } else {
+        return response.json()
+        .then(response => {
+          return response.errors
+        })
+        .then(errors => {
+          console.log(errors);
+        })
+        .catch(console.log("Error in fetch"))
+      }
+    })
+    .then(updatedPlan => {
+      this.setState({ latestPlan: updatedPlan })
+    })
   }
 
   componentDidMount() {
