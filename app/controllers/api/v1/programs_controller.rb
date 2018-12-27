@@ -5,6 +5,15 @@ class Api::V1::ProgramsController < ApplicationController
     render json: serialized_data(current_plan)
   end
 
+  def update
+    source_day_id = params["sourceDayId"]
+    destination_day_id = params["destinationDayId"]
+    exercise_id = params["exerciseId"]
+    workout = Workout.find_by(day_id: source_day_id, exercise_id: exercise_id)
+    workout.update_attribute(:day_id, destination_day_id)
+    render json: serialized_data(current_plan)
+  end
+
   private
 
   def current_plan
@@ -12,7 +21,10 @@ class Api::V1::ProgramsController < ApplicationController
   end
 
   def serialized_data(plan)
-    { phases: serialized_phases(plan.phases) }
+    {
+      phases: serialized_phases(plan.phases),
+      id: plan.id
+    }
   end
 
   def serialized_phases(phases)
