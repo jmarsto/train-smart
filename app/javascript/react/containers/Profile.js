@@ -3,6 +3,7 @@ import 'babel-polyfill';
 import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router';
 import { DragDropContext } from 'react-beautiful-dnd';
 
+import planUpdate from '../../modules/planUpdate'
 import Phase from './Phase';
 
 class Profile extends Component {
@@ -13,12 +14,96 @@ class Profile extends Component {
         phases: []
       }
     };
+    this.updatePlanInState = this.updatePlanInState.bind(this)
+  }
+
+  updatePlanInState = (result) => {
+    if (!result.destination) {
+      return
+    }
+
+    if (result.destination.droppableId === result.source.droppableId &&
+    result.destination.index === result.source.index) {
+      return
+    }
+
+    let update = new planUpdate(this.state.latestPlan.phases, result)
+
+    this.setState({
+      latestPlan: {
+        ...this.state.latestPlan,
+        phases: update.newPhases()
+      }
+    })
+    //
+    // debugger
+    //
+    //
+    // let newSourceDay = {
+    //   ...sourceDay,
+    //   exercises: newSourceExercises
+    // }
+    //
+    // let newSourceDays = {
+    //   ...sourceWeek.days,
+    //   [sourceDayIndex]: newSourceDay
+    // }
+    //
+    // let newSourceWeek = {
+    //   ...sourceWeek,
+    //   days: newSourceDays
+    // }
+    //
+    // let newSourceWeeks = {
+    //   ...sourcePhase.weeks,
+    //   [sourceWeekIndex]: newSourceWeek
+    // }
+    //
+    // let newSourcePhase = {
+    //   ...sourcePhase,
+    //   weeks: newSourceWeeks
+    // }
+    //
+    //
+    // let newDestinationDay = {
+    //   ...destinationDay,
+    //   exercises: newDestinationExercises
+    // }
+    //
+    // let newDestinationDays = {
+    //   ...destinationWeek.days,
+    //   [destinationDayIndex]: newDestinationDay
+    // }
+    //
+    // let newDestinationWeek = {
+    //   ...destinationWeek,
+    //   days: newDestinationDays
+    // }
+    //
+    // let newDestinationWeeks = {
+    //   ...destinationPhase.weeks,
+    //   [destinationWeekIndex]: newDestinationWeek
+    // }
+    //
+    // let newDestinationPhase = {
+    //   ...destinationPhase,
+    //   weeks: newDestinationWeeks
+    // }
+    //
+    // let newPhases = this.state.latestPlan.phases
+    //
+    // // pull that phase out of phases and replace it
+    // newPhases.splice(sourcePhaseIndex, 1, newSourcePhase)
+    // newPhases.splice(destinationPhaseIndex, 1, newDestinationPhase)
+
   }
 
   onDragEnd = result => {
     let sourceDayId = result.source.droppableId
     let destinationDayId = result.destination.droppableId
     let exerciseId = result.draggableId.split("-")[1]
+
+    this.updatePlanInState(result)
 
     fetch(`/api/v1/programs/${this.state.latestPlan.id}`, {
       method: 'PATCH',
@@ -30,7 +115,7 @@ class Profile extends Component {
     })
     .then(response => {
       if (response.ok) {
-        return response.json()
+        return
       } else {
         return response.json()
         .then(response => {
@@ -41,9 +126,6 @@ class Profile extends Component {
         })
         .catch(console.log("Error in fetch"))
       }
-    })
-    .then(updatedPlan => {
-      this.setState({ latestPlan: updatedPlan })
     })
   }
 
