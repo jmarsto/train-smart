@@ -29,10 +29,26 @@ export default class planUpdate {
 
   newPhases() {
     this.extractInstanceVariables();
-    debugger;
-    updateSourceDay();
-    updateDestinationDay();
-    return newPhases;
+
+    if (this.source.dayIndex != this.destination.dayIndex) {
+      this.removeExerciseFromSource(this.phases[this.source.phaseIndex].weeks[this.source.weekIndex].days[this.source.dayIndex]);
+      this.addExerciseToDestination(this.phases[this.destination.phaseIndex].weeks[this.destination.weekIndex].days[this.destination.dayIndex]);
+      return this.phases;
+    }
+    else if (this.source.index != this.destination.index) {
+      let affectedDay = this.phases[this.source.phaseIndex].weeks[this.source.weekIndex].days[this.source.dayIndex];
+      this.removeExerciseFromSource(affectedDay);
+      this.addExerciseToDestination(affectedDay);
+      return this.phases;
+    }
+  }
+
+  removeExerciseFromSource(day) {
+    day.exercises.splice(this.source.index, 1);
+  }
+
+  addExerciseToDestination(day) {
+    day.exercises.splice(this.destination.index, 0, this.exerciseDragged);
   }
 
   extractInstanceVariables() {
@@ -74,7 +90,6 @@ export default class planUpdate {
         });
       });
     });
-
   }
 
 }
