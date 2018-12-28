@@ -35,67 +35,6 @@ class Profile extends Component {
         phases: update.newPhases()
       }
     })
-    //
-    // debugger
-    //
-    //
-    // let newSourceDay = {
-    //   ...sourceDay,
-    //   exercises: newSourceExercises
-    // }
-    //
-    // let newSourceDays = {
-    //   ...sourceWeek.days,
-    //   [sourceDayIndex]: newSourceDay
-    // }
-    //
-    // let newSourceWeek = {
-    //   ...sourceWeek,
-    //   days: newSourceDays
-    // }
-    //
-    // let newSourceWeeks = {
-    //   ...sourcePhase.weeks,
-    //   [sourceWeekIndex]: newSourceWeek
-    // }
-    //
-    // let newSourcePhase = {
-    //   ...sourcePhase,
-    //   weeks: newSourceWeeks
-    // }
-    //
-    //
-    // let newDestinationDay = {
-    //   ...destinationDay,
-    //   exercises: newDestinationExercises
-    // }
-    //
-    // let newDestinationDays = {
-    //   ...destinationWeek.days,
-    //   [destinationDayIndex]: newDestinationDay
-    // }
-    //
-    // let newDestinationWeek = {
-    //   ...destinationWeek,
-    //   days: newDestinationDays
-    // }
-    //
-    // let newDestinationWeeks = {
-    //   ...destinationPhase.weeks,
-    //   [destinationWeekIndex]: newDestinationWeek
-    // }
-    //
-    // let newDestinationPhase = {
-    //   ...destinationPhase,
-    //   weeks: newDestinationWeeks
-    // }
-    //
-    // let newPhases = this.state.latestPlan.phases
-    //
-    // // pull that phase out of phases and replace it
-    // newPhases.splice(sourcePhaseIndex, 1, newSourcePhase)
-    // newPhases.splice(destinationPhaseIndex, 1, newDestinationPhase)
-
   }
 
   onDragEnd = result => {
