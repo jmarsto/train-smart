@@ -3,6 +3,7 @@ import 'babel-polyfill';
 import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router';
 import { DragDropContext } from 'react-beautiful-dnd';
 
+import planUpdate from '../../modules/planUpdate'
 import Phase from './Phase';
 
 class Profile extends Component {
@@ -17,101 +18,22 @@ class Profile extends Component {
   }
 
   updatePlanInState = (result) => {
-    let planUpdater = new makeShitUp(this.state.latestPlan.phases, result.source, result.destination)
-    this.setState({
-      latestPlan: {
-        ...this.state.latestPlan,
-        phases: planUpdater.updatePhases()
-      }
-    })
-
-
-    let sourceDayId = result.source.droppableId
-    let sourceIndex = result.source.index
-    let destinationDayId = result.destination.droppableId
-    let destinationIndex = result.destination.index
-    let exerciseId = result.draggableId.split("-")[1]
-
     if (!result.destination) {
       return
     }
 
-    if (destinationDayId === sourceDayId && destinationIndex === sourceIndex) {
+    if (result.destination.droppableId === result.source.droppableId &&
+    result.destination.index === result.source.index) {
       return
     }
 
-    let exerciseDragged
-    let newSourceExercises
-    let sourceDay
-    let sourceDayIndex
-    let sourceWeek
-    let sourceWeekIndex
-    let sourcePhase
-    let sourcePhaseIndex
-    let newDestinationExercises
+    let update = new planUpdate(this.state.latestPlan.phases, result)
 
-    let currentPhase
-    let currentPhaseIndex
-    let currentWeek
-    let currentWeekIndex
-
-    this.state.latestPlan.phases.forEach((phase, index) => {
-      currentPhase = phase
-      currentPhaseIndex = index
-      phase.weeks.forEach((week, index) => {
-        currentWeek = week
-        currentWeekIndex = index
-        week.days.forEach((day, index) => {
-          if (day.id == sourceDayId) {
-            day.exercises.forEach(exercise => {
-              if (exercise.id == exerciseId) {
-                exerciseDragged = exercise
-              }
-            })
-            newSourceExercises = day.exercises.filter(exercise => exercise.id != exerciseId)
-            sourceDay = day
-            sourceDayIndex = index
-            sourceWeek = currentWeek
-            sourceWeekIndex = currentWeekIndex
-            sourcePhase = currentPhase
-            sourcePhaseIndex = currentPhaseIndex
-          }
-        else if (day.id == destinationDayId && exerciseDragged) {
-          newDestinationExercises = day.exercises.concat(exerciseDragged)
-        }
-        else if (day.id == destinationDayId && !exerciseDragged) {
-
-        }
-        })
-      })
-    })
-
-
-    let destinationDay
-    let destinationDayIndex
-    let destinationWeek
-    let destinationWeekIndex
-    let destinationPhase
-    let desinationPhaseIndex
-
-    this.state.latestPlan.phases.forEach((phase, index) => {
-      currentPhase = phase
-      currentPhaseIndex = index
-      phase.weeks.forEach((week, index) => {
-        currentWeek = week
-        currentWeekIndex = index
-        week.days.forEach((day, index) => {
-          if (day.id == destinationDayId) {
-            newDestinationExercises = day.exercises.concat(exerciseDragged)
-            destinationDay = day
-            destinationDayIndex = index
-            destinationWeek = currentWeek
-            destinationWeekIndex = currentWeekIndex
-            destinationPhase = currentPhase
-            desinationPhaseIndex = currentPhaseIndex
-          }
-        })
-      })
+    this.setState({
+      latestPlan: {
+        ...this.state.latestPlan,
+        phases: update.newPhases()
+      }
     })
 
     debugger
@@ -173,11 +95,6 @@ class Profile extends Component {
     // pull that phase out of phases and replace it
     newPhases.splice(sourcePhaseIndex, 1, newSourcePhase)
     newPhases.splice(destinationPhaseIndex, 1, newDestinationPhase)
-
-    let updatedPlan = {
-      ...this.state.latestPlan,
-      phases: newPhases
-    }
 
   }
 
