@@ -18,15 +18,6 @@ class Profile extends Component {
   }
 
   updatePlanInState = (result) => {
-    if (!result.destination) {
-      return
-    }
-
-    if (result.destination.droppableId === result.source.droppableId &&
-    result.destination.index === result.source.index) {
-      return
-    }
-
     let update = new planUpdate(this.state.latestPlan.phases, result)
 
     this.setState({
@@ -38,34 +29,43 @@ class Profile extends Component {
   }
 
   onDragEnd = result => {
-    let sourceDayId = result.source.droppableId
-    let destinationDayId = result.destination.droppableId
-    let exerciseId = result.draggableId.split("-")[1]
+    if (!result.destination) {
+      return
+    }
+    else if (result.destination.droppableId === result.source.droppableId &&
+    result.destination.index === result.source.index) {
+      return
+    }
+    else {
+      let sourceDayId = result.source.droppableId
+      let destinationDayId = result.destination.droppableId
+      let exerciseId = result.draggableId.split("-")[1]
 
-    this.updatePlanInState(result)
+      this.updatePlanInState(result)
 
-    fetch(`/api/v1/programs/${this.state.latestPlan.id}`, {
-      method: 'PATCH',
-      body: JSON.stringify({sourceDayId, destinationDayId, exerciseId}),
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json' },
-      credentials: 'same-origin'
-    })
-    .then(response => {
-      if (response.ok) {
-        return
-      } else {
-        return response.json()
-        .then(response => {
-          return response.errors
-        })
-        .then(errors => {
-          console.log(errors);
-        })
-        .catch(console.log("Error in fetch"))
-      }
-    })
+      fetch(`/api/v1/programs/${this.state.latestPlan.id}`, {
+        method: 'PATCH',
+        body: JSON.stringify({sourceDayId, destinationDayId, exerciseId}),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json' },
+        credentials: 'same-origin'
+      })
+      .then(response => {
+        if (response.ok) {
+          return
+        } else {
+          return response.json()
+          .then(response => {
+            return response.errors
+          })
+          .then(errors => {
+            console.log(errors);
+          })
+          .catch(console.log("Error in fetch"))
+        }
+      })
+    }
   }
 
   componentDidMount() {
