@@ -1,5 +1,5 @@
 class DaySerializer < ActiveModel::Serializer
-  attributes :id, :name, :exercises
+  attributes :id, :name, :workouts
 
-  has_many :exercises
+  has_many :workouts
 end
