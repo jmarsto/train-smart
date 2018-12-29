@@ -37,15 +37,14 @@ class Profile extends Component {
       return
     }
     else {
-      let sourceDayId = result.source.droppableId
       let destinationDayId = result.destination.droppableId
-      let exerciseId = result.draggableId.split("-")[1]
+      let workoutId = result.draggableId
 
       this.updatePlanInState(result)
 
       fetch(`/api/v1/programs/${this.state.latestPlan.id}`, {
         method: 'PATCH',
-        body: JSON.stringify({sourceDayId, destinationDayId, exerciseId}),
+        body: JSON.stringify({destinationDayId, workoutId}),
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json' },

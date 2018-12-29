@@ -44,7 +44,7 @@ class Exercise extends Component {
     })
 
     return(
-      <Draggable draggableId={`${this.props.day}-${this.props.id}`} index={this.props.index}>
+      <Draggable draggableId={`${this.props.id}`} index={this.props.index}>
         {(provided, snapshot) => (
           <div
             className="exercise"

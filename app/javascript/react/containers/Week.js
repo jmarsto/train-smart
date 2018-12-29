@@ -9,7 +9,7 @@ const Week = props => {
       <Day
         key = {day.id}
         id = {day.id}
-        exercises = {day.exercises}
+        workouts = {day.workouts}
       />
     )
   })

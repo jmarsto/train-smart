@@ -5,15 +5,14 @@ import Exercise from '../components/Exercise'
 
 const Day = props => {
 
-  let exercises = props.exercises.map((exercise, index) => {
+  let workouts = props.workouts.map((workout, index) => {
     return(
       <Exercise
-        key = {exercise.id}
-        id = {exercise.id}
-        name = {exercise.name}
-        day = {props.id}
+        key = {workout.id}
+        id = {workout.id}
+        name = {workout.exercise.name}
         index = {index}
-        description = {exercise.description}
+        description = {workout.exercise.description}
       />
     )
   })
@@ -26,7 +25,7 @@ const Day = props => {
           ref={provided.innerRef}
           {...provided.droppableProps}
         >
-          {exercises}
+          {workouts}
           {provided.placeholder}
         </div>
       )}

@@ -1,8 +1,8 @@
 export default class planUpdate {
   constructor(phases, result) {
     this.phases = phases;
-    this.exerciseId = result.draggableId.split("-")[1];
-    this.exerciseDragged = null;
+    this.workoutId = result.draggableId;
+    this.workoutDragged = null;
     this.source = {
       dayId: result.source.droppableId,
       index: result.source.index,
@@ -23,26 +23,25 @@ export default class planUpdate {
 
   newPhases() {
     this.extractInstanceVariables();
-
     if (this.destination.day && this.source.day != this.destination.day) {
-      this.removeExerciseFromSource(this.phases[this.source.phaseIndex].weeks[this.source.weekIndex].days[this.source.dayIndex]);
-      this.addExerciseToDestination(this.phases[this.destination.phaseIndex].weeks[this.destination.weekIndex].days[this.destination.dayIndex]);
+      this.removeWorkoutFromSource(this.phases[this.source.phaseIndex].weeks[this.source.weekIndex].days[this.source.dayIndex]);
+      this.addWorkoutToDestination(this.phases[this.destination.phaseIndex].weeks[this.destination.weekIndex].days[this.destination.dayIndex]);
       return this.phases;
     }
     else if (this.source.index != this.destination.index) {
       let affectedDay = this.phases[this.source.phaseIndex].weeks[this.source.weekIndex].days[this.source.dayIndex];
-      this.removeExerciseFromSource(affectedDay);
-      this.addExerciseToDestination(affectedDay);
+      this.removeWorkoutFromSource(affectedDay);
+      this.addWorkoutToDestination(affectedDay);
       return this.phases;
     }
   }
 
-  removeExerciseFromSource(day) {
-    day.exercises.splice(this.source.index, 1);
+  removeWorkoutFromSource(day) {
+    day.workouts.splice(this.source.index, 1);
   }
 
-  addExerciseToDestination(day) {
-    day.exercises.splice(this.destination.index, 0, this.exerciseDragged);
+  addWorkoutToDestination(day) {
+    day.workouts.splice(this.destination.index, 0, this.workoutDragged);
   }
 
   extractInstanceVariables() {
@@ -55,9 +54,9 @@ export default class planUpdate {
         currentWeekIndex = index;
         week.days.forEach((day, index) => {
           if (day.id == this.source.dayId) {
-            day.exercises.forEach(exercise => {
-              if (exercise.id == this.exerciseId) {
-                this.exerciseDragged = exercise;
+            day.workouts.forEach(workout => {
+              if (workout.id == this.workoutId) {
+                this.workoutDragged = workout;
               }
             });
             this.source.day = day;

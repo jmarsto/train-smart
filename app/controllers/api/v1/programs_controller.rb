@@ -6,10 +6,9 @@ class Api::V1::ProgramsController < ApplicationController
   end
 
   def update
-    source_day_id = params["sourceDayId"]
     destination_day_id = params["destinationDayId"]
-    exercise_id = params["exerciseId"]
-    workout = Workout.find_by(day_id: source_day_id, exercise_id: exercise_id)
+    workout_id = params["workoutId"]
+    workout = Workout.find(workout_id)
     workout.update_attribute(:day_id, destination_day_id)
     render json: serialized_data(current_plan)
   end
