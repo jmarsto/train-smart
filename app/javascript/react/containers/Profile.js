@@ -3,7 +3,7 @@ import 'babel-polyfill';
 import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router';
 import { DragDropContext } from 'react-beautiful-dnd';
 
-import planUpdate from '../../modules/planUpdate'
+import PlanUpdate from '../../modules/PlanUpdate'
 import Phase from './Phase';
 
 class Profile extends Component {
@@ -18,7 +18,7 @@ class Profile extends Component {
   }
 
   updatePlanInState = (result) => {
-    let update = new planUpdate(this.state.latestPlan.phases, result)
+    let update = new PlanUpdate(this.state.latestPlan.phases, result)
 
     this.setState({
       latestPlan: {
