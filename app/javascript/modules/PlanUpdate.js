@@ -1,4 +1,4 @@
-export default class planUpdate {
+export default class PlanUpdate {
   constructor(phases, result) {
     this.phases = phases;
     this.workoutId = result.draggableId;
