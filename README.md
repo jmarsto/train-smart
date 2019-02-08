@@ -5,7 +5,7 @@ This app was built as the culmination of my experience at Launch Academy. (https
 It generates custom training plans for rock climbers based on their answers to a ten step self-assessment.
 It is deployed on Heroku at:
 
-### https://obscure-earth-36641.herokuapp.com/
+### https://trainsmart.herokuapp.com/
 ###
 
 Sign-up is easy, and the user is immediately given a 10 step self-assessment to analyze their strengths and weaknesses as a rock-climber.
